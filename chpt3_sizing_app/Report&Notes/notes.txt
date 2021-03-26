@@ -1,0 +1,95 @@
+Product BackLog:
+https://docs.google.com/spreadsheets/d/1Zv_ItkDt9cSYRsCiaYMDgIkXQmfWrytebtxd2gA6BGc/edit?usp=sharing
+
+The system itself (backend):
+Problem:
+    How do you calculate chest, waist, thigh size without a measuring tape. 
+        - HARD:
+        - Are there any anatomically mathematical formulas that could discard the tape?
+        - Can we use smartphone technology in some way that could do the measurements?
+        - EASY:
+        - Or should it be based on likelihood, with previous appeal preferences? 
+
+User: 
+    If the user already owns clothing they are happy with, then use that appeal as a reference. 
+    If not? Measuring Tape? 
+
+Admin: 
+    Need to provide information of the size grades for each size (xs, s, m, l, xl etc..)
+    Category of the appeal and its sub-category (e.g. category: cycling, sub-category: dirt)
+
+
+Meeting with Manikas:
+5-10 ways of already existing solutions. (ways of measuring, measuring tape, easysize etc..)
+
+Discover the architecture. If there is no academic litterature, then look at the technology itself. 
+
+We need to conduct experiments. The experiment will end in a validation. For example, the traditional way versus our application. The amount of time, and thoughts of the process etc. Such that we have empirical data. 
+
+Who owns the product. 
+
+Discover the startup.
+
+Can you make the measuring generic?
+
+How much machine learning is there? How much is low tech and how much is high tech? 
+
+How much data is needed? Incentive driven questions, the question seems irrational, 
+
+Experiement result: If very little machine learning, then try machine learning or AI. 
+
+By june: we know what is out there, and we have an idea of what we want to do.
+
+
+Meeting with Sam (Clothes designer):
+
+fit models is all about feedback. 
+
+Fit garments on mannequinns 
+
+At chpt3: 
+	small and large grade score is tweeked. 
+	
+Change the size after comments
+
+The problem:
+Human mistakes - fabric manufacturing - error in production
+Lykra is better than elastain - you can buy it from any manufacture. They found a way of controlling the manufacturing process. 
+
+Sowing - 1-2cm tolerance - one sieze, order sieze 10, tolerance can be different up to a whole size.
+
+How likely is error? Quite likely.
+
+When the size is returned - it often ends in landfills. Size accounts of 50% of all returns. 
+CHPT3: returns procentage:...
+
+Data on returns.. too small or too big? feedback loop. 
+If the 50% too small and 50% too large, then it might not be a product problem? (Sam)
+
+Grade scores: Are those possible to get for other brands as well?:
+LTP - the factory. They are kinda useless. 
+Addidas: Some of their items 4 increment. 
+	standard models - than increment cm's to that size. 
+chest 2.5cm increments. Sport: increment 2 cm, compression, 1.5cm increments.  
+
+Worked better in past: weight/height and bodyshape. Difficult for women. The shape instead. 
+For women: bra size is a good indication. 
+
+Hip/Waist/Chest
+
+Huge market in asia. 
+
+Good litterature to search on, is body sizes differences over the time, people are getting fat. 
+
+Plan:
+Fit session beginning of march - matching with other brands.
+
+Racefit: super thight 
+
+Pants - saddle have an impact - and so does the padding.
+
+Doing measuring can go wrong. Height and Weight is more measurable correctly. 
+
+
+
+

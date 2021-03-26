@@ -1,0 +1,92 @@
+CREATE TABLE users (
+	user_id serial PRIMARY KEY,
+	gender VARCHAR ( 50 ) NOT NULL,
+	age VARCHAR ( 50 ) NOT NULL,
+	height INT NOT NULL,
+	weight INT NOT NULL,
+	tummy_shape VARCHAR ( 50 ) NOT NULL,
+	hip_shape VARCHAR ( 50 ) NOT NULL,
+	breast_shape VARCHAR ( 50 ) NOT NULL,
+	bra_size VARCHAR ( 50 ) 
+);
+
+CREATE TABLE usersizes (
+	user_id INT NOT NULL,
+	breast_size INT,
+	under_breastsize INT,
+	waist_size INT,
+	hip_size INT,
+	cb_length INT,
+	shoulder INT,
+	thigh_width INT,
+	innerleg_length INT,
+	FOREIGN KEY (user_id) REFERENCES users (user_id)
+);
+
+CREATE TABLE items (
+	item_id serial PRIMARY KEY,
+	product_description VARCHAR ( 50 ) NOT NULL,
+	produce_code VARCHAR ( 50 ), 
+	costumer VARCHAR ( 50 ), 
+	composition VARCHAR ( 50 ),
+	date_created TIMESTAMP,
+	product_status VARCHAR ( 50 ),
+	colour VARCHAR ( 50 ),
+	size_range VARCHAR ( 50 ),
+	pattern_ref VARCHAR ( 50 ),
+ 	block_ref VARCHAR ( 50 ),
+	date_approved TIMESTAMP,
+	issue_number INT,
+	date_modified TIMESTAMP
+);
+
+
+CREATE TABLE itemsizes (
+	itemsize_id serial PRIMARY KEY,
+	item_id INT NOT NULL,
+	size VARCHAR ( 10 ) NOT NULL,
+	chest INT,
+	waist INT,
+	hem INT,
+	x_back INT,
+	shoulder_seam INT,
+	sleeve_overarm INT,
+	bicep INT,
+	cuff INT,
+	cb_length INT,
+	neck_stretch_minimum INT,
+	hip INT,
+	front_rise INT,
+	back_rise INT,
+	strap INT,
+	shoulder INT, 
+	thigh INT,
+	inside_leg INT,
+	pad_position INT,
+	FOREIGN KEY (item_id) REFERENCES items (item_id)
+);
+
+
+CREATE TABLE graderules (
+	graderule_id serial PRIMARY KEY,
+	item_id INT NOT NULL,
+	g_chest INT,
+	g_waist INT,
+	g_hem INT,
+	g_x_back INT,
+	g_shoulder_seam INT,
+	g_sleeve_overarm INT,
+	g_bicep INT,
+	g_cuff INT,
+	g_cb_length INT,
+	FOREIGN KEY (item_id) REFERENCES items (item_id)
+);
+
+CREATE TABLE itemfits (
+	user_id INT NOT NULL,
+	itemsize_id INT NOT NULL,
+	fit VARCHAR ( 50 ) NOT NULL,
+	PRIMARY KEY (user_id, itemsize_id),
+	FOREIGN KEY (user_id) REFERENCES users (user_id),
+	FOREIGN KEY (itemsize_id) REFERENCES itemsizes (itemsize_id)
+);
