@@ -1,3 +1,8 @@
+Shopify app:
+App interface, enter data, then a url will be formed with a script tag, then it will be posted to the store url (chpt3), which locates the e.g. add to cart button, and places the content above (a modal for example)
+
+RetainMe
+
 Product BackLog:
 https://docs.google.com/spreadsheets/d/1Zv_ItkDt9cSYRsCiaYMDgIkXQmfWrytebtxd2gA6BGc/edit?usp=sharing
 
