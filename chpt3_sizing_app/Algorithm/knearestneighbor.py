@@ -42,6 +42,7 @@ import pandas as pd # data processing
 from termcolor import colored as cl # elegant printing of text
 import seaborn as sb # visualizations
 import matplotlib.pyplot as plt # editing visualizations
+import math
 from matplotlib import style # setting styles for plots
 from sklearn.preprocessing import StandardScaler # normalizing data
 from sklearn.neighbors import KNeighborsClassifier # KNN algorithm
@@ -62,16 +63,16 @@ plt.rcParams['figure.figsize'] = (16, 7)
 
 # # 4. Scatter Matrix:
 
-# sb.pairplot(data = dataset, hue = 'Size', palette = ['Red', 'Blue', 'limegreen'])
-# plt.savefig('pairplot.png')
+sb.pairplot(data = dataset, hue = 'Size', palette = ['Red', 'Blue', 'limegreen', 'Orange', 'Green'])
+plt.savefig('pairplot1.png')
 
 #Training the data
-X_var = dataset[['Age', 'Height', 'Weight', 'TummyShape', 'HipShape', 'ChestShape']].values
+X_var = dataset[['Height', 'Weight']].values
 #print(X_var)
 y_var = dataset['Size'].values
 
-# print(cl('X variable :', attrs = ['bold']), X_var[:5])
-# print(cl('Y variable :', attrs = ['bold']), y_var[:5])
+print(cl('X variable :', attrs = ['bold']), X_var[:5])
+print(cl('Y variable :', attrs = ['bold']), y_var[:5])
 
 #Normalize:
 X_var = StandardScaler().fit(X_var).transform(X_var.astype(float))
@@ -80,28 +81,38 @@ X_var = StandardScaler().fit(X_var).transform(X_var.astype(float))
 #train:
 X_train, X_test, y_train, y_test = train_test_split(X_var, y_var, test_size = 0.3, random_state = 0)
 
-# print(cl('Train set shape :', attrs = ['bold']), X_train.shape, y_train.shape)
-# print(cl('Test set shape :', attrs = ['bold']), X_test.shape, y_test.shape)
+print(cl('Train set shape :', attrs = ['bold']), X_train.shape, y_train.shape)
+print(cl('Test set shape :', attrs = ['bold']), X_test.shape, y_test.shape)
 
 #knn algo:
-k = 3
+k = int(math.sqrt(len(dataset.index)))#sqrt of n, seems to be good k value. k must be uneven, such that the result wont be even between two clusters 
+
+if (k % 2) == 0:  
+   k = k-1 #if k is even, subtract one. 
+print('this is k: ')
+print(k)
 
 neigh = KNeighborsClassifier(n_neighbors = k)
 neigh.fit(X_train, y_train)
 
-#print(cl(neigh, attrs = ['bold']))
+print(cl(neigh, attrs = ['bold']))
 
 #prediction
 yhat = neigh.predict(X_test)
 
+print(cl('Prediction Accuracy Score (%) :', attrs = ['bold']), round(accuracy_score(y_test, yhat)*100, 2))
 
-# Assign colum names to the dataset
-names = ['Age', 'Height', 'Weight', 'TummyShape', 'HipShape', 'ChestShape', 'Size']
+# input candidate
+# names = ['Height', 'Weight']
 
-# Read dataset to pandas dataframe
-dataset = pd.read_csv('testuser.csv', names=names)
+# dataset = pd.read_csv('testuser.csv', names=names)
 
-testUser = dataset[['Age', 'Height', 'Weight', 'TummyShape', 'HipShape', 'ChestShape']].values
+# testUser = dataset[['Height', 'Weight']].values
+
+# testUserPredict = neigh.predict(testUser)
+ 
+
+# print(cl('Prediction Accuracy Score (%) :', attrs = ['bold']), round(accuracy_score(testUser, testUserPredict)*100, 2))
 #print(arrOfArr)
 # newPrediction = { 'Age': [25],
 #                 'Height': [170],
@@ -110,12 +121,9 @@ testUser = dataset[['Age', 'Height', 'Weight', 'TummyShape', 'HipShape', 'ChestS
 #                 'HipShape': [1],
 #                 'ChestShape': [1]
 #                 }
-print(testUser)
+
 #df = pd.DataFrame(arrOfArr,columns=['Age', 'Weight','Height','TummyShape', 'HipShape', 'ChestShape']) 
-Normalize = StandardScaler().fit(testUser).transform(testUser.astype(float))
-print(Normalize)
-print(X_var)
-print(X_test)
+
 
 
 
