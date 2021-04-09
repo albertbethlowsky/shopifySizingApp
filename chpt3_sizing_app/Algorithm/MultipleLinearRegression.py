@@ -39,14 +39,19 @@ Female_Inputs = { 'Size:': [],
                 'ActualBraSize': []
                 }
 
-df = pd.DataFrame(Male_Inputs,columns=['Size','Age', 'Weight','Height','TummyShape', 'HipShape', 'ChestShape'
-]) #,
+names = ['Age', 'Height', 'Weight', 'TummyShape', 'HipShape', 'ChestShape', 'Size']
+
+df = pd.read_csv('usersnew.csv', names=names)
+
+# df = pd.DataFrame(Male_Inputs,columns=['Size','Age', 'Weight','Height','TummyShape', 'HipShape', 'ChestShape'
+# ]) #,
 X = df[[ 'Age', 'Height', 'Weight', 'TummyShape', 'HipShape', 'ChestShape']] #
 Y = df['Size']
 
 # with sklearn
 regr = linear_model.LinearRegression()
 regr.fit(X, Y)
+print(regr.score(X,Y))
 
 print('Intercept: \n', regr.intercept_)
 print('Coefficients: \n', regr.coef_)
@@ -55,7 +60,7 @@ print('Coefficients: \n', regr.coef_)
 # new prediction for a user:
 New_Age = 25
 New_Height = 170
-New_Weight = 88
+New_Weight = 120
 New_TummyShape = 2
 New_HipShape = 1
 New_ChestShape = 1
@@ -67,6 +72,10 @@ X = sm.add_constant(X) # adding a constant
 model = sm.OLS(Y, X).fit()
 predictions = model.predict(X) 
 
+#Explains the model:
+#https://medium.com/swlh/interpreting-linear-regression-through-statsmodels-summary-4796d359035a
+
 print_model = model.summary()
 print(print_model)
+
 
