@@ -1,6 +1,7 @@
 #From: https://datatofish.com/multiple-linear-regression-python/
 
 import pandas as pd
+import math
 from sklearn import linear_model
 import statsmodels.api as sm
 #1 = S, narrow, small, flat
@@ -20,32 +21,33 @@ import statsmodels.api as sm
     #There must be a statistical way of doing this. 
 
 #Training data:
-Male_Inputs = { 'Size': [1, 5, 5, 4, 4],
-                'Age': [20, 30, 35, 45, 25],
-                'Height': [160, 175, 195, 182, 185],
-                'Weight': [54, 87, 85, 73, 78],
-                'TummyShape': [1,2,3,1,1],
-                'HipShape': [1,2,3,2,2],
-                'ChestShape': [1,2,3,2,2]
+Male_Inputs = { 'Size': [4, 5, 4, 5, 5,3,1,2,4,1],
+                'Age': [20, 20, 20, 20, 20,20,20,20,20,20],
+                'Height': [178, 183, 189, 180, 180, 179.8, 166,173,172,172],
+                'Weight': [70, 85, 81, 75, 80, 65.7,58,64,77,59],
+                'Bmi': [22.8, 25.3, 22.6, 23.1, 24.7, 20.3, 21, 21.3, 26, 19.9],
+                'TummyShape': [2,1,2,1,2,1,1,2,3,2],
+                'HipShape':   [2,2,2,3,3,2,2,2,2,1],
+                'ChestShape': [2,2,2,3,3,2,2,2,2,1]
                 }
 
 Female_Inputs = { 'Size:': [],
                 'Age': [],
                 'Height': [],
                 'Weight': [],
+                'Bmi': [],
                 'TummyShape': [],
                 'HipShape': [],
                 'BustShape': [],
                 'ActualBraSize': []
                 }
 
-names = ['Age', 'Height', 'Weight', 'TummyShape', 'HipShape', 'ChestShape', 'Size']
+names = ['Age', 'Height', 'Weight', 'Bmi', 'TummyShape', 'HipShape', 'ChestShape', 'Size']
 
-df = pd.read_csv('usersnew.csv', names=names)
+#df = pd.read_csv('usersnew.csv', names=names)
 
-# df = pd.DataFrame(Male_Inputs,columns=['Size','Age', 'Weight','Height','TummyShape', 'HipShape', 'ChestShape'
-# ]) #,
-X = df[[ 'Age', 'Height', 'Weight', 'TummyShape', 'HipShape', 'ChestShape']] #
+df = pd.DataFrame(Male_Inputs,columns=['Size','Age', 'Weight','Height', 'Bmi','TummyShape', 'HipShape', 'ChestShape' ])
+X = df[[ 'Age', 'Height', 'Weight', 'Bmi', 'TummyShape', 'HipShape', 'ChestShape']] 
 Y = df['Size']
 
 # with sklearn
@@ -58,13 +60,16 @@ print('Coefficients: \n', regr.coef_)
 
 # prediction with sklearn
 # new prediction for a user:
-New_Age = 25
-New_Height = 170
-New_Weight = 120
-New_TummyShape = 2
-New_HipShape = 1
-New_ChestShape = 1
-print ('Predicted Size: \n', regr.predict([[New_Age, New_Height, New_Weight, New_TummyShape, New_HipShape, New_ChestShape]])) 
+New_Age = 35
+New_Height = 190
+New_Weight = 100
+
+New_Bmi = New_Weight / pow(New_Height*0.01,2)
+print(New_Bmi)
+New_TummyShape = 3
+New_HipShape = 3
+New_ChestShape = 3
+print ('Predicted Size: \n', regr.predict([[New_Age, New_Height, New_Weight, New_Bmi, New_TummyShape, New_HipShape, New_ChestShape]])) 
 
 # with statsmodels
 X = sm.add_constant(X) # adding a constant
