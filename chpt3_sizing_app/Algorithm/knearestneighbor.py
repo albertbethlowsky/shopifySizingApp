@@ -1,12 +1,20 @@
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
-
-# Assign colum names to the dataset
-names = ['Age', 'Height', 'Weight', 'TummyShape', 'HipShape', 'ChestShape', 'Size']
+from sklearn.model_selection import train_test_split # splits the data, part is training and part is testing
+from sklearn.preprocessing import StandardScaler # So we dont have bias of high numbers. Uniformed of -1 and 1
+from sklearn.neighbors import KNeighborsClassifier #the actual tool
+#three tools to test:
+from sklearn.metrics import confusion_matrix 
+from sklearn.metrics import f1_score
+from termcolor import colored as cl # elegant printing of text
+import seaborn as sb # visualizations
+import matplotlib.pyplot as plt # editing visualizations
+import math
+from matplotlib import style # setting styles for plots
+from sklearn.metrics import accuracy_score # algorithm accuracy
 
 # Read dataset to pandas dataframe
-dataset = pd.read_csv('users.csv', names=names)
+dataset = pd.read_csv('botUsersWithSize.csv')
 
 
 # # #print(len(dataset.index)) #number of items
@@ -38,17 +46,6 @@ dataset = pd.read_csv('users.csv', names=names)
 # #new try:
 # #https://medium.com/codex/machine-learning-k-nearest-neighbors-algorithm-with-python-df94b374ad41
 
-import pandas as pd # data processing
-from termcolor import colored as cl # elegant printing of text
-import seaborn as sb # visualizations
-import matplotlib.pyplot as plt # editing visualizations
-import math
-from matplotlib import style # setting styles for plots
-from sklearn.preprocessing import StandardScaler # normalizing data
-from sklearn.neighbors import KNeighborsClassifier # KNN algorithm
-from sklearn.metrics import accuracy_score # algorithm accuracy
-from sklearn.model_selection import train_test_split # splitting the data
-
 style.use('seaborn-whitegrid')
 plt.rcParams['figure.figsize'] = (16, 7)
 
@@ -62,8 +59,8 @@ plt.rcParams['figure.figsize'] = (16, 7)
 # plt.savefig('heightweight.png')
 
 # # 4. Scatter Matrix:
-
-sb.pairplot(data = dataset, hue = 'Size', palette = ['Red', 'Blue', 'limegreen', 'Orange', 'Green'])
+cols_to_plot = dataset.columns[1:8].tolist() 
+sb.pairplot(data = dataset, hue = 'baselayersize')
 plt.savefig('pairplot1.png')
 
 # #Training the data
@@ -131,32 +128,21 @@ plt.savefig('pairplot1.png')
 
 
 #Trial 3 - https://www.youtube.com/watch?v=4HKqjENq9OU
-import pandas as pd
-import numpy as np
-import math
-from sklearn.model_selection import train_test_split # splits the data, part is training and part is testing
-from sklearn.preprocessing import StandardScaler # So we dont have bias of high numbers. Uniformed of -1 and 1
-from sklearn.neighbors import KNeighborsClassifier #the actual tool
-#three tools to test:
-from sklearn.metrics import confusion_matrix 
-from sklearn.metrics import f1_score
-from sklearn.metrics import accuracy_score
+
 
 #KNN - predict whether a person is xs,s,m,l or xl
 
-names = ['Age', 'Height', 'Weight', 'TummyShape', 'HipShape', 'ChestShape', 'Size']
-dataset = pd.read_csv('users.csv', names=names)
-
 #replace zero's (clean data)
-zero_not_accepted = ['Age','Height','Weight','TummyShape','HipShape','ChestShape']
+zero_not_accepted = ['gender','age','height','weight','bmi','tummy','hip', 'breast']
 for column in zero_not_accepted:
     dataset[column] = dataset[column].replace(0, np.NaN)
     mean = int(dataset[column].mean(skipna=True))
     dataset[column] = dataset[column].replace(np.NaN, mean)
 
 #split dataset:
-X = dataset.iloc[:,0:6]
-y = dataset.iloc[:,6]
+X = dataset.iloc[:,0:8]
+y = dataset.iloc[:,9]
+print(X)
 
 X_train, X_test, y_train, y_test = train_test_split(X,y,random_state=0, test_size=0.2)
 

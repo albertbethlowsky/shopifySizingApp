@@ -22,7 +22,7 @@ weightMax = 132
 
 usersProduced = 0
 
-while(usersProduced!=1000):
+while(usersProduced!=50000):
     gender = random.randint(male,female)
     age = random.randint(ageMin,ageMax) 
     height = random.randint(heightMin,heightMax)

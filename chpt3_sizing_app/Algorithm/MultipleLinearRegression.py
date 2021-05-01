@@ -37,10 +37,8 @@ import statsmodels.api as sm
 
 # names = ['Age', 'Height', 'Weight', 'Bmi', 'TummyShape', 'HipShape', 'ChestShape', 'Size']
 #df = pd.DataFrame(Male_Inputs,columns=['Size','Age', 'Weight','Height', 'Bmi','TummyShape', 'HipShape', 'ChestShape' ])
-# Assign colum names to the dataset
-names = ['gender','age','height','weight','bmi','tummy','hip','breast','baselayersize','jeserysize','bibsize']
 # Read dataset to pandas dataframe
-df1 = pd.read_csv('realUsers.csv', names=names)
+df1 = pd.read_csv('realUsers.csv')
 
 def calc_predict(item):
     X = df1[['gender','age','height','weight','bmi','tummy','hip','breast']] 
@@ -90,7 +88,7 @@ for index, row in df2.iterrows():
     botUsersWithSize['bibsize'].append(bibsize)
 
 print('bot users have been gathered and their size predicted for baselayer, jersey and bibs, see file: BotUsersWithSize.csv ')
-df3 = pd.DataFrame(botUsersWithSize,columns=names)
+df3 = pd.DataFrame(botUsersWithSize,columns=['gender','age','height','weight','bmi','tummy','hip','breast','baselayersize','jeserysize','bibsize'])
 df3.to_csv('BotUsersWithSize.csv', index=False)
 #print ('Predicted Size: \n', regr.predict([[New_Age, New_Height, New_Weight, New_Bmi, New_TummyShape, New_HipShape, New_ChestShape]])) 
 
