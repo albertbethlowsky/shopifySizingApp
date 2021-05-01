@@ -70,5 +70,5 @@ while(usersProduced!=1000):
         usersProduced+=1
 
 df = pd.DataFrame(user,columns=['gender','age','height','weight','bmi','tummy','hip','breast'])
-df.to_csv('usersnew.csv', index=False)
+df.to_csv('BotUsersWithoutSize.csv', index=False)
 

@@ -2,6 +2,8 @@
 
 import pandas as pd
 import math
+import numpy
+
 from sklearn import linear_model
 import statsmodels.api as sm
 #1 = S, narrow, small, flat
@@ -21,66 +23,88 @@ import statsmodels.api as sm
     #There must be a statistical way of doing this. 
 
 #Training data:
-Male_Inputs = { 'Size': [4, 5, 4, 5, 5,3,1,2,4,1],
-                'Age': [20, 20, 20, 20, 20,20,20,20,20,20],
-                'Height': [178, 183, 189, 180, 180, 179.8, 166,173,172,172],
-                'Weight': [70, 85, 81, 75, 80, 65.7,58,64,77,59],
-                'Bmi': [22.8, 25.3, 22.6, 23.1, 24.7, 20.3, 21, 21.3, 26, 19.9],
-                'TummyShape': [2,1,2,1,2,1,1,2,3,2],
-                'HipShape':   [2,2,2,3,3,2,2,2,2,1],
-                'ChestShape': [2,2,2,3,3,2,2,2,2,1]
-                }
+# Male_Inputs = { 'Size': [4, 5, 4, 5, 5,3,1,2,4,1],
+#                 'Age': [20, 20, 20, 20, 20,20,20,20,20,20],
+#                 'Height': [178, 183, 189, 180, 180, 179.8, 166,173,172,172],
+#                 'Weight': [70, 85, 81, 75, 80, 65.7,58,64,77,59],
+#                 'Bmi': [22.8, 25.3, 22.6, 23.1, 24.7, 20.3, 21, 21.3, 26, 19.9],
+#                 'TummyShape': [2,1,2,1,2,1,1,2,3,2],
+#                 'HipShape':   [2,2,2,3,3,2,2,2,2,1],
+#                 'ChestShape': [2,2,2,3,3,2,2,2,2,1]
+#                 }
 
-Female_Inputs = { 'Size:': [],
-                'Age': [],
-                'Height': [],
-                'Weight': [],
-                'Bmi': [],
-                'TummyShape': [],
-                'HipShape': [],
-                'BustShape': [],
-                'ActualBraSize': []
-                }
 
-names = ['Age', 'Height', 'Weight', 'Bmi', 'TummyShape', 'HipShape', 'ChestShape', 'Size']
 
-#df = pd.read_csv('usersnew.csv', names=names)
+# names = ['Age', 'Height', 'Weight', 'Bmi', 'TummyShape', 'HipShape', 'ChestShape', 'Size']
+#df = pd.DataFrame(Male_Inputs,columns=['Size','Age', 'Weight','Height', 'Bmi','TummyShape', 'HipShape', 'ChestShape' ])
+# Assign colum names to the dataset
+names = ['gender','age','height','weight','bmi','tummy','hip','breast','baselayersize','jeserysize','bibsize']
+# Read dataset to pandas dataframe
+df1 = pd.read_csv('realUsers.csv', names=names)
 
-df = pd.DataFrame(Male_Inputs,columns=['Size','Age', 'Weight','Height', 'Bmi','TummyShape', 'HipShape', 'ChestShape' ])
-X = df[[ 'Age', 'Height', 'Weight', 'Bmi', 'TummyShape', 'HipShape', 'ChestShape']] 
-Y = df['Size']
+def calc_predict(item):
+    X = df1[['gender','age','height','weight','bmi','tummy','hip','breast']] 
+    Y = df1[item]
+    regr = linear_model.LinearRegression()
+    regr.fit(X, Y)
+    return regr
 
 # with sklearn
-regr = linear_model.LinearRegression()
-regr.fit(X, Y)
-print(regr.score(X,Y))
+# regr = linear_model.LinearRegression()
+# regr.fit(X, Y)
+# print(regr.score(X,Y))
 
-print('Intercept: \n', regr.intercept_)
-print('Coefficients: \n', regr.coef_)
+# print('Intercept: \n', regr.intercept_)
+# print('Coefficients: \n', regr.coef_)
 
 # prediction with sklearn
 # new prediction for a user:
-New_Age = 35
-New_Height = 190
-New_Weight = 100
 
-New_Bmi = New_Weight / pow(New_Height*0.01,2)
-print(New_Bmi)
-New_TummyShape = 3
-New_HipShape = 3
-New_ChestShape = 3
-print ('Predicted Size: \n', regr.predict([[New_Age, New_Height, New_Weight, New_Bmi, New_TummyShape, New_HipShape, New_ChestShape]])) 
+filename = 'BotUsersWithoutSize.csv'
+df2 = pd.read_csv(filename)
+
+botUsersWithSize = {'gender':[],'age':[],'height':[],'weight':[], 'bmi':[],'tummy':[],'hip':[],'breast':[], 'baselayersize':[], 'jeserysize':[], 'bibsize':[]}
+
+for index, row in df2.iterrows():
+    gender          = int(row['gender'])
+    age             = int(row['age'])
+    height          = row['height']
+    weight          = row['weight']
+    bmi             = row['bmi']
+    tummy           = int(row['tummy'])
+    hip             = int(row['hip'])
+    breast          = int(row['breast'])
+    baselayersize   = round(numpy.float64(calc_predict('baselayersize').predict([[gender, age, height, weight, bmi, tummy, hip, breast]])))
+    jeserysize      = round(numpy.float64(calc_predict('jeserysize').predict([[gender, age, height, weight, bmi, tummy, hip, breast]])))
+    bibsize         = round(numpy.float64(calc_predict('bibsize').predict([[gender, age, height, weight, bmi, tummy, hip, breast]])))
+    botUsersWithSize['gender'].append(gender)
+    botUsersWithSize['age'].append(age)
+    botUsersWithSize['height'].append(height)
+    botUsersWithSize['weight'].append(weight)
+    botUsersWithSize['bmi'].append(bmi)
+    botUsersWithSize['tummy'].append(tummy)
+    botUsersWithSize['hip'].append(hip)
+    botUsersWithSize['breast'].append(breast)
+    botUsersWithSize['baselayersize'].append(baselayersize)
+    botUsersWithSize['jeserysize'].append(jeserysize)
+    botUsersWithSize['bibsize'].append(bibsize)
+
+print('bot users have been gathered and their size predicted for baselayer, jersey and bibs, see file: BotUsersWithSize.csv ')
+df3 = pd.DataFrame(botUsersWithSize,columns=names)
+df3.to_csv('BotUsersWithSize.csv', index=False)
+#print ('Predicted Size: \n', regr.predict([[New_Age, New_Height, New_Weight, New_Bmi, New_TummyShape, New_HipShape, New_ChestShape]])) 
+
 
 # with statsmodels
-X = sm.add_constant(X) # adding a constant
+# X = sm.add_constant(X) # adding a constant
 
-model = sm.OLS(Y, X).fit()
-predictions = model.predict(X) 
+# model = sm.OLS(Y, X).fit()
+# predictions = model.predict(X) 
 
-#Explains the model:
-#https://medium.com/swlh/interpreting-linear-regression-through-statsmodels-summary-4796d359035a
+# #Explains the model:
+# #https://medium.com/swlh/interpreting-linear-regression-through-statsmodels-summary-4796d359035a
 
-print_model = model.summary()
-print(print_model)
+# print_model = model.summary()
+# print(print_model)
 
 
