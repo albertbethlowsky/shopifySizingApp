@@ -20,14 +20,16 @@ heightMax = 211
 weightMin = 41
 weightMax = 132
 
-for x in range(1000):
+usersProduced = 0
+
+while(usersProduced!=1000):
     gender = random.randint(male,female)
     age = random.randint(ageMin,ageMax) 
     height = random.randint(heightMin,heightMax)
     weight = random.randint(weightMin, weightMax)
     bmi = round(weight / pow(height*0.01,2), 1)
 
-    if(bmi>24.9): #overweight
+    if(bmi>24.9 and bmi<32.5): #overweight
         tummy = random.randint(2,3)
         hip = random.randint(2,3)
         breast = random.randint(2,3)
@@ -39,7 +41,8 @@ for x in range(1000):
         user['tummy'].append(tummy)
         user['hip'].append(hip)
         user['breast'].append(breast)
-    elif(bmi<18.5): #underweight
+        usersProduced+=1
+    elif(bmi<18.5 and bmi>15): #underweight
         tummy = random.randint(1,2)
         hip = random.randint(1,2)
         breast = random.randint(1,2)
@@ -51,7 +54,8 @@ for x in range(1000):
         user['tummy'].append(tummy)
         user['hip'].append(hip)
         user['breast'].append(breast)
-    else: #normalweight
+        usersProduced+=1
+    elif(bmi>18.5 and bmi<25): #normalweight
         tummy = random.randint(1,3)
         hip = random.randint(1,3)
         breast = random.randint(1,3)
@@ -63,6 +67,7 @@ for x in range(1000):
         user['tummy'].append(tummy)
         user['hip'].append(hip)
         user['breast'].append(breast)
+        usersProduced+=1
 
 df = pd.DataFrame(user,columns=['gender','age','height','weight','bmi','tummy','hip','breast'])
 df.to_csv('usersnew.csv', index=False)
