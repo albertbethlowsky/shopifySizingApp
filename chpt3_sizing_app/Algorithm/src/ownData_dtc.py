@@ -8,7 +8,7 @@ from sklearn.metrics import classification_report
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_absolute_error
 
-dataset = pd.read_csv('botUsersWithSize.csv')
+dataset = pd.read_csv('./src/botUsersWithSize.csv')
 # loading the iris dataset
 #iris = datasets.load_iris()
   
@@ -38,6 +38,6 @@ accuracy = dtree_model.score(X_test, y_test)
 # print(mean_absolute_error(y_test,dtree_predictions))
 # print('_______________________________________')
 
-import appendToCsv as atc
+import src.appendToCsv as atc
 row_contents = ['Decision Tree Classifier','max_depth=2',accuracy,mean_squared_error(y_test,dtree_predictions), mean_absolute_error(y_test,dtree_predictions)]
 atc.append_list_as_row('results/MLresults_ownData.csv', row_contents)

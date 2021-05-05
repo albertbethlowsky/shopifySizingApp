@@ -22,8 +22,6 @@ from sklearn.metrics import recall_score
 from sklearn.metrics import average_precision_score
 from sklearn.metrics import classification_report
 
-import generateUsers as gu
-#gu.calSizes()
 
 #make bot users and have them assigned sizes with the help of multipleLinearRegression and actual data. 
 
@@ -31,7 +29,7 @@ import generateUsers as gu
 
 
 # Read dataset to pandas dataframe
-dataset = pd.read_csv('botUsersWithSize.csv')
+dataset = pd.read_csv('./src/botUsersWithSize.csv')
 
 
 # # #print(len(dataset.index)) #number of items
@@ -198,7 +196,7 @@ classifier.fit(X_train, y_train)
 y_pred = classifier.predict(X_test)
 
 s = 'k= '+str(k)
-import appendToCsv as atc
+import src.appendToCsv as atc
 row_contents = ['K-Nearest Neighbor',s,accuracy_score(y_test, y_pred),mean_squared_error(y_test,y_pred), mean_absolute_error(y_test,y_pred)]
 atc.append_list_as_row('results/MLresults_ownData.csv', row_contents)
 

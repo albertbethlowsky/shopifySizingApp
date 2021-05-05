@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt # editing visualizations
 
 def create_df():
-    df = pd.read_json('modcloth_final_data.json', lines=True)
+    df = pd.read_json('./src/modcloth_final_data.json', lines=True)
     df.columns = ['item_id', 'waist', 'size', 'quality', 'cup_size', 'hips','bra_size','category', 'bust', 'height', 'user_name', 'length','fit', 'user_id', 'shoe_size', 'shoe_width', 'review_summary', 'review_text']
 
 

@@ -9,7 +9,7 @@ import random
 from sklearn import linear_model
 import statsmodels.api as sm
 
-df1 = pd.read_csv('realUsers.csv')
+df1 = pd.read_csv('./src/realUsers.csv')
 
 #predict for one user:
 def calc_predict(item):
@@ -88,12 +88,12 @@ def makeUsers(nrOfUsers):
             usersProduced+=1
 
     df = pd.DataFrame(user,columns=['gender','age','height','weight','bmi','tummy','hip','breast'])
-    df.to_csv('BotUsersWithoutSize.csv', index=False)
+    df.to_csv('./src/BotUsersWithoutSize.csv', index=False)
 
 #generate all users
 def generate(nrOfUsers):
     makeUsers(nrOfUsers)
-    filename = 'BotUsersWithoutSize.csv'
+    filename = './src/BotUsersWithoutSize.csv'
     
     df2 = pd.read_csv(filename)
 
@@ -150,7 +150,7 @@ def generate(nrOfUsers):
 
     print('bot users have been gathered and their size predicted for baselayer, jersey and bibs, see file: BotUsersWithSize.csv ')
     df3 = pd.DataFrame(botUsersWithSize,columns=['gender','age','height','weight','bmi','tummy','hip','breast','baselayersize','jerseysize','bibsize'])
-    df3.to_csv('BotUsersWithSize.csv', index=False)
+    df3.to_csv('./src/BotUsersWithSize.csv', index=False)
     #print ('Predicted Size: \n', regr.predict([[New_Age, New_Height, New_Weight, New_Bmi, New_TummyShape, New_HipShape, New_ChestShape]])) 
 
 

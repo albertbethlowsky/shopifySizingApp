@@ -9,7 +9,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_absolute_error
 import matplotlib.pyplot as plt
   
-dataset = pd.read_csv('botUsersWithSize.csv')
+dataset = pd.read_csv('./src/botUsersWithSize.csv')
 # loading the iris dataset
 iris = datasets.load_iris()
   
@@ -47,6 +47,6 @@ for i in kernels:
     
     # s = 'Support Vector Machine,'+i+','+str(accuracy)+','+str(mean_squared_error(y_test,svm_predictions))+','+str(mean_absolute_error(y_test,svm_predictions))
     # print(s)
-    import appendToCsv as atc
+    import src.appendToCsv as atc
     row_contents = ['Support Vector Machine',i,accuracy,mean_squared_error(y_test,svm_predictions), mean_absolute_error(y_test,svm_predictions)]
     atc.append_list_as_row('results/MLresults_ownData.csv', row_contents)

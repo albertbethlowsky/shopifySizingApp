@@ -13,7 +13,7 @@ from termcolor import colored as cl # elegant printing of text
 import seaborn as sb # visualizations
 import matplotlib.pyplot as plt # editing visualizations
 import math
-import treatModClothData as treatData
+import src.treatModClothData as treatData
 from matplotlib import style # setting styles for plots
 from sklearn.metrics import accuracy_score # algorithm accuracy
 from sklearn.metrics import mean_squared_error
@@ -118,7 +118,7 @@ for id in uniquevalues:
         users = len(newDataset)
 
         # print(s)
-        import appendToCsv as atc
+        import src.appendToCsv as atc
         row_contents = ['Naive Bayes Classifier','N/A',users,id,accuracy,mean_squared_error(y_test,gnb_predictions), mean_absolute_error(y_test,gnb_predictions)]
         atc.append_list_as_row('results/MLresults_modData.csv', row_contents)
 
