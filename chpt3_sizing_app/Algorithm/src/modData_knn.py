@@ -92,7 +92,7 @@ def plot_correlation(data):
 uniquevalues = np.unique(dataset[['item_id']].values)
 for id in uniquevalues:
     newDataset = dataset[dataset['item_id']==id]
-    #newDataset = newDataset[newDataset['fit']==0]
+    newDataset = newDataset[newDataset['fit']==0]
     #print(newDataset.head(20))
     newDataset = newDataset[['size', 'cup_size','hips','bra_size','height','shoe_size','shoe_width','fit']].copy()
     if(len(newDataset)>1500):

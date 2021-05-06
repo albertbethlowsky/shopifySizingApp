@@ -5,6 +5,7 @@ from pylab import rcParams
 from sklearn.model_selection import train_test_split # splits the data, part is training and part is testing
 from sklearn.preprocessing import StandardScaler # So we dont have bias of high numbers. Uniformed of -1 and 1
 from sklearn.neighbors import KNeighborsClassifier #the actual tool
+from sklearn.neighbors import KNeighborsRegressor #the actual tool
 #three tools to test:
 from sklearn.metrics import confusion_matrix 
 from sklearn.metrics import f1_score
@@ -179,19 +180,24 @@ def run(featureMin, featureMax, label):
 
     if (k % 2) == 0:  
         k = k-1 #if k is even, subtract one. 
-    classifier = KNeighborsClassifier(n_neighbors=k, p=2, metric='euclidean') #euclidean, finds the distance between test data point and train data point
+    #knn = KNeighborsClassifier(n_neighbors=k, p=2, metric='euclidean') 
+    knn = KNeighborsRegressor(n_neighbors=k, weights='distance', metric='euclidean')
+    
+    #euclidean, finds the distance between test data point and train data point
     #N_neighbors here is 'K' 
     #p is the power parameter to define the metric used, which 'Euclidean' in our case
-    classifier.fit(X_train, y_train)
+    knn.fit(X_train, y_train)
 
 
 
     #predict the test set results
-    y_pred = classifier.predict(X_test)
+    y_pred = knn.predict(X_test)
 
     s = 'k= '+str(k)
     import src.appendToCsv as atc
     filename = 'results/MLresults_ownData_label#' + str(label) + '.csv'
+    #row_contents = ['K-Nearest Neighbor',s,accuracy_score(y_test, y_pred),mean_squared_error(y_test,y_pred), mean_absolute_error(y_test,y_pred)]
+    #atc.append_list_as_row(filename, row_contents)
     row_contents = ['K-Nearest Neighbor',s,accuracy_score(y_test, y_pred),mean_squared_error(y_test,y_pred), mean_absolute_error(y_test,y_pred)]
     atc.append_list_as_row(filename, row_contents)
 

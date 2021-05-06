@@ -21,7 +21,6 @@ def calc_predict(item):
     regr.fit(X, Y)
     return regr
 
-
 def makeUsers(nrOfUsers):
     user = {'gender':[],'age':[],'height':[],'weight':[], 'bmi':[],'tummy':[],'hip':[],'breast':[]}
 
