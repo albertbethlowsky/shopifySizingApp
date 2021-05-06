@@ -14,7 +14,7 @@ nrOfUsers = 10000
 #CHOOSE FEATURES AND LABELS:
 #0=gender, 1=age, 2=height, 3=weght, 4=bmi, 5=tummy, 6=hip, 7=breast
 #choose featuresMax=8 to include 7=breast
-featuresMin = 2
+featuresMin = 0
 featuresMax = 8
 label = 8 #8=baselayersize, 9=jerseysize, 10=bibsize
 #___________________________________________________________________#
