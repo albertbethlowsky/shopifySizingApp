@@ -11,6 +11,8 @@ import statsmodels.api as sm
 
 df1 = pd.read_csv('./src/realUsers.csv')
 
+
+
 #predict for one user:
 def calc_predict(item):
     X = df1[['gender','age','height','weight','bmi','tummy','hip','breast']] 
@@ -39,7 +41,6 @@ def makeUsers(nrOfUsers):
     weightMin = 41
     weightMax = 132
     usersProduced = 0
-
     while(usersProduced!=nrOfUsers):
         gender = random.randint(male,female)
         age = random.randint(ageMin,ageMax) 
@@ -93,6 +94,7 @@ def makeUsers(nrOfUsers):
 #generate all users
 def generate(nrOfUsers):
     makeUsers(nrOfUsers)
+
     filename = './src/BotUsersWithoutSize.csv'
     
     df2 = pd.read_csv(filename)
@@ -124,29 +126,38 @@ def generate(nrOfUsers):
         botUsersWithSize['jerseysize'].append(jerseysize)
         botUsersWithSize['bibsize'].append(bibsize)
     #including bots:
-    for index, row in df2.iterrows():
-        gender          = int(row['gender'])
-        age             = int(row['age'])
-        height          = row['height']
-        weight          = row['weight']
-        bmi             = row['bmi']
-        tummy           = int(row['tummy'])
-        hip             = int(row['hip'])
-        breast          = int(row['breast'])
-        baselayersize   = round(numpy.float64(calc_predict('baselayersize').predict([[gender, age, height, weight, bmi, tummy, hip, breast]])))
-        jerseysize      = round(numpy.float64(calc_predict('jerseysize').predict([[gender, age, height, weight, bmi, tummy, hip, breast]])))
-        bibsize         = round(numpy.float64(calc_predict('bibsize').predict([[gender, age, height, weight, bmi, tummy, hip, breast]])))
-        botUsersWithSize['gender'].append(gender)
-        botUsersWithSize['age'].append(age)
-        botUsersWithSize['height'].append(height)
-        botUsersWithSize['weight'].append(weight)
-        botUsersWithSize['bmi'].append(bmi)
-        botUsersWithSize['tummy'].append(tummy)
-        botUsersWithSize['hip'].append(hip)
-        botUsersWithSize['breast'].append(breast)
-        botUsersWithSize['baselayersize'].append(baselayersize)
-        botUsersWithSize['jerseysize'].append(jerseysize)
-        botUsersWithSize['bibsize'].append(bibsize)
+    usersProduced = len(df2)
+    print(usersProduced)
+
+    while(usersProduced>0):
+        for index, row in df2.iterrows():
+            gender          = int(row['gender'])
+            age             = int(row['age'])
+            height          = row['height']
+            weight          = row['weight']
+            bmi             = row['bmi']
+            tummy           = int(row['tummy'])
+            hip             = int(row['hip'])
+            breast          = int(row['breast'])
+            baselayersize   = round(numpy.float64(calc_predict('baselayersize').predict([[gender, age, height, weight, bmi, tummy, hip, breast]])))
+            jerseysize      = round(numpy.float64(calc_predict('jerseysize').predict([[gender, age, height, weight, bmi, tummy, hip, breast]])))
+            bibsize         = round(numpy.float64(calc_predict('bibsize').predict([[gender, age, height, weight, bmi, tummy, hip, breast]])))
+
+            if((baselayersize>0 and baselayersize<9) and (jerseysize>0 and jerseysize<9) and ( bibsize>0 and bibsize<9)):
+                botUsersWithSize['gender'].append(gender)
+                botUsersWithSize['age'].append(age)
+                botUsersWithSize['height'].append(height)
+                botUsersWithSize['weight'].append(weight)
+                botUsersWithSize['bmi'].append(bmi)
+                botUsersWithSize['tummy'].append(tummy)
+                botUsersWithSize['hip'].append(hip)
+                botUsersWithSize['breast'].append(breast)
+                botUsersWithSize['baselayersize'].append(baselayersize)
+                botUsersWithSize['jerseysize'].append(jerseysize)
+                botUsersWithSize['bibsize'].append(bibsize)
+                usersProduced-=1
+            if(usersProduced<1):
+                break
 
     print('bot users have been gathered and their size predicted for baselayer, jersey and bibs, see file: BotUsersWithSize.csv ')
     df3 = pd.DataFrame(botUsersWithSize,columns=['gender','age','height','weight','bmi','tummy','hip','breast','baselayersize','jerseysize','bibsize'])

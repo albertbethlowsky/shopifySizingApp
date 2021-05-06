@@ -1,19 +1,35 @@
 import csv
 import src.appendToCsv as atc
+import src.ownData_nbc as nbc
+import src.ownData_knn as knn
+import src.ownData_dtc as dtc
+import src.ownData_svm as svm
 
+#__________________________INPUT VARIABLES_________________________#
+#To generate new users: 
 import src.generateUsers as gu
-#gu.generate(10000)
+nrOfUsers = 10000
+#gu.generate(nrOfUsers)
 
+#CHOOSE FEATURES AND LABELS:
+#0=gender, 1=age, 2=height, 3=weght, 4=bmi, 5=tummy, 6=hip, 7=breast
+#choose featuresMax=8 to include 7=breast
+featuresMin = 2
+featuresMax = 8
+label = 8 #8=baselayersize, 9=jerseysize, 10=bibsize
+#___________________________________________________________________#
+
+filename = 'results/MLresults_ownData_label#' + str(label) + '.csv'
 l = ['name', 'subname', 'accuracy', 'rmse', 'mae']
-atc.append_list_as_row_newfile('results/MLresults_ownData.csv', l)
+atc.append_list_as_row_newfile(filename, l)
 
-exec(open("./src/ownData_svm.py").read())
+svm.run(featuresMin,featuresMax,label)
 print('Support Vector Model - done')
-exec(open("./src/ownData_knn.py").read())
+knn.run(featuresMin,featuresMax,label)
 print('K-Nearest Neighbors - done')
-exec(open("./src/ownData_nbc.py").read())
+nbc.run(featuresMin,featuresMax,label)
 print('Naive Bayes Classifier - done')
-exec(open("./src/ownData_dtc.py").read())
+dtc.run(featuresMin,featuresMax,label)
 print('Decision Tree Classifier - done')
 print('_______________________________')
 
@@ -25,4 +41,4 @@ with open('./src/BotUsersWithSize.csv') as f:
     print('Nr of users tested:')
     print(s-1)
 
-print('DONE! - see file: results/MLresults_ownData.csv')
+print('DONE! - see file: ', filename)
