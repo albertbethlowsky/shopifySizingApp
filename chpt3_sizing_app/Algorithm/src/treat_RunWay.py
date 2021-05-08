@@ -5,6 +5,24 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 import json
+import re
+
+#helper functions
+def parse_bust_size(s):
+    m = re.match(r'(\d+)([A-Za-z])(\+?)', s)
+    if m:
+        return pd.Series(data=[int(m.group(1)), m.group(2).lower()])
+    return []
+
+def parse_product_category(s):
+    tops = ['blazer', 'blouse', 'blouson', 'bomber', 'buttondown','cami', 'cardigan', 'coat', 'crewneck', 'henley', 'hoodie', 'jacket', 'overcoat', 'parka', 'peacoat', 'pullover', 'shirt', 'sweater', 'sweater', 'sweatershirt', 'sweatshirt', 'tank', 'tee', 'tops', 'trench', 't-shirt', 'turtleneck', 'vest']
+    bottoms = ['culotte', 'culottes', 'jeans', 'jogger', 'legging', 'leggings', 'overalls', 'pant', 'pants', 'skirt', 'skirts', 'skort', 'sweatpants', 'trouser', 'trousers']
+    other = ['caftan', 'cape', 'combo', 'dress', 'duster', 'for', 'frock', 'gown', 'jumpsuit', 'kaftan', 'kimono', 'knit', 'maxi', 'midi','mini', 'poncho', 'print', 'romper', 'sheath', 'shift', 'shirtdress', 'suit', 'tight', 'tunic']
+    if any(s in index for index in tops):
+        return pd.Series(data=['top'])
+    elif any(s in index for index in bottoms):
+        return pd.Series(data=['bottom'])
+    return pd.Series(data=['other'])
 
 def load_data(fp):
     with open(fp) as fid:
@@ -18,11 +36,9 @@ def feet_to_meters(s):
 def pounds_to_kilos(s):
     return int(s.replace('lbs', '')) * 0.45359237
 
-def create_csv():
-    df = load_data('./renttherunway_final_data.json')
-
-    print(df.head(20))
-
+#callable function:
+def create_csv(fileinput, fileoutput):
+    df = load_data(fileinput)
     to_drop = df[df['fit'] == 'fit'].isnull().any(axis=1)
     n = to_drop.sum()
     to_drop.shape, df.shape
@@ -49,6 +65,45 @@ def create_csv():
 
     cleaned_df['rating'] = pd.to_numeric(cleaned_df['rating'])
     cleaned_df['rating'] = cleaned_df['rating'].fillna(cleaned_df['rating'].median())
+   
+    col_mapper = {
+    'bust size': 'bust_size',
+    'weight': 'weight_kg',
+    'rating': 'review_rating',
+    'rented for': 'rented_for',
+    'body type': 'body_type',
+    'category': 'product_category_old',
+    'height': 'height_meters',
+    'size': 'product_size',
+    'age': 'age',
+    }
+    cleaned_df.rename(col_mapper, axis=1, inplace=True)
 
 
-create_csv()
+    mapper = {
+    0: 'bust_size_num', 
+    1: 'bust_size_cat'
+    }
+    temp_df = cleaned_df['bust_size'].apply(parse_bust_size).rename(mapper, axis=1)
+    temp_df['bust_size_num'] = pd.to_numeric(temp_df['bust_size_num'])
+    
+    cleaned_df = cleaned_df.join(temp_df)
+
+    cleaned_df.drop(['bust_size'], axis=1, inplace=True)
+    cleaned_df['bmi'] = cleaned_df['weight_kg'] / np.power(cleaned_df['height_meters'], 2)
+    cleaned_df.drop(['weight_kg', 'height_meters'], axis=1, inplace=True)
+
+    mapper = {
+    0: 'product_category', 
+    }
+    temp_df = cleaned_df['product_category_old'].apply(parse_product_category).rename(mapper, axis=1)
+    cleaned_df = cleaned_df.join(temp_df)
+    cleaned_df.drop(['product_category_old'], axis=1, inplace=True)
+
+    #cleaned_df = cleaned_df.dropna()
+   # cleaned_df.bmi = cleaned_df.bmi.fillna(0).astype('float64')'
+    cleaned_df= cleaned_df[~cleaned_df.isin([np.nan, np.inf, -np.inf]).any(1)]
+    #cleaned_df = cleaned_df.drop(cleaned_df[(cleaned_df.bmi == 'inf') & (cleaned_df.bmi == 0)].index)
+    cleaned_df.to_csv(fileoutput, index=False)
+
+create_csv('C:/Users/Frederik/Desktop/shopifySizingApp/chpt3_sizing_app/Algorithm/Data/renttherunway_final_data.json', 'C:/Users/Frederik/Desktop/shopifySizingApp/chpt3_sizing_app/Algorithm/Data/clean_runway.csv')
