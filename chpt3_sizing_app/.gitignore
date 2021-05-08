@@ -19,3 +19,9 @@ config/tunnel.pid
 
 # next build output
 .next/
+
+*.json
+
+Algorithm/Data/modcloth_final_data.json
+
+Algorithm/Data/renttherunway_final_data.json
