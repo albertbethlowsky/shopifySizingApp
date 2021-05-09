@@ -25,23 +25,22 @@ from sklearn.metrics import classification_report
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import cross_val_score
 
-def getresults(X_train_chpt3, X_test_chpt3, y_train_chpt3, y_test_chpt3, X_train_runway, X_test_runway, y_train_runway, y_test_runway):
+def getresults(X_test, y_test, X_train, y_train):
     #insert runway's var:
     maxdepth = 2
-    dtree_model = DecisionTreeClassifier(max_depth = maxdepth).fit(X_train_runway, y_train_runway)
+    dtree_model = DecisionTreeClassifier(max_depth = maxdepth).fit(X_train, y_train)
 
     #insert chpt3's var:
-    dtree_predictions = dtree_model.predict(X_test_chpt3)
+    dtree_predictions = dtree_model.predict(X_test)
 
     # creating a confusion matrix
-    cm = confusion_matrix(y_test_chpt3, dtree_predictions)
+    #cm = confusion_matrix(y_test, dtree_predictions)
 
     #print(cm)
-
-    scores = cross_val_score(dtree_model, X_test_chpt3, y_test_chpt3, cv=5)
-    accuracy = accuracy_score(y_test_chpt3, dtree_predictions)
-    rmse = mean_squared_error(y_test_chpt3,dtree_predictions)
-    mae = mean_absolute_error(y_test_chpt3,dtree_predictions)
+    scores = cross_val_score(dtree_model, X_test, y_test, cv=5)
+    accuracy = accuracy_score(y_test, dtree_predictions)
+    rmse = mean_squared_error(y_test,dtree_predictions)
+    mae = mean_absolute_error(y_test,dtree_predictions)
     kscore = scores.mean()
     kscore_stnd_dev = scores.std()
     name = 'Decision Tree Classifier'

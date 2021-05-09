@@ -26,7 +26,7 @@ from sklearn.svm import LinearSVC
 from sklearn.model_selection import cross_val_score
 from sklearn.preprocessing import StandardScaler
 
-def getresults(ker, X_train_chpt3, X_test_chpt3, y_train_chpt3, y_test_chpt3, X_train_runway, X_test_runway, y_train_runway, y_test_runway):
+def getresults(X_test, y_test, X_train, y_train):
     clf = LinearSVC()
     #random_state needs to be the same for each run or else different results will be computed
     #https://scikit-learn.org/stable/modules/cross_validation.html
@@ -34,22 +34,22 @@ def getresults(ker, X_train_chpt3, X_test_chpt3, y_train_chpt3, y_test_chpt3, X_
     #https://stackoverflow.com/questions/40077432/why-is-scikit-learn-svm-svc-extremely-slow
     #normalize the data, can improve the speed:
     #https://stackoverflow.com/questions/52670012/convergencewarning-liblinear-failed-to-converge-increase-the-number-of-iterati
-    scores = cross_val_score(clf, X_train_runway, y_train_runway, cv=5)
-    clf.fit(X_train_runway, y_train_runway)
-    svm_predictions = clf.predict(X_test_chpt3)
+    scores = cross_val_score(clf, X_test, y_test, cv=5)
+    clf.fit(X_train, y_train)
+    svm_predictions = clf.predict(X_test)
     # model accuracy for X_test  
-    accuracy = accuracy_score(y_test_chpt3, svm_predictions)
+    accuracy = accuracy_score(y_test, svm_predictions)
     kscore = scores.mean()
     kscore_stnd_dev = scores.std()
-    rmse = mean_squared_error(y_test_chpt3, svm_predictions)
-    mae = mean_absolute_error(y_test_chpt3, svm_predictions)
+    rmse = mean_squared_error(y_test, svm_predictions)
+    mae = mean_absolute_error(y_test, svm_predictions)
     
     # creating a confusion matrix
     #cm = confusion_matrix(y_test, svm_predictions)
     #print(cm)
     name = 'Support Vector Machine'
 
-    return [name, ker,  accuracy, rmse, mae, kscore, kscore_stnd_dev]
+    return [name, accuracy, rmse, mae, kscore, kscore_stnd_dev]
 
 
 

@@ -25,7 +25,7 @@ from sklearn.metrics import classification_report
 from sklearn.model_selection import KFold
 from sklearn.model_selection import cross_val_score
 
-def getresults(k, X_train_chpt3, X_test_chpt3, y_train_chpt3, y_test_chpt3, X_train_runway, X_test_runway, y_train_runway, y_test_runway):
+def getresults(k, X_test, y_test, X_train, y_train):
     #Then define the model using KNeighborsClassifier and fit the train data in the model:
     #Define the model: Init K-NN
 
@@ -37,25 +37,25 @@ def getresults(k, X_train_chpt3, X_test_chpt3, y_train_chpt3, y_test_chpt3, X_tr
    
     #N_neighbors here is 'K' 
     #p is the power parameter to define the metric used, which 'Euclidean' in our case
-    classifier.fit(X_train_runway, y_train_runway)
+    classifier.fit(X_train, y_train)
 
     #predict the test set results
-    y_pred = classifier.predict(X_test_chpt3)
+    y_pred = classifier.predict(X_test)
     
 
     #evaluate model
-    #cm = confusion_matrix(y_test_chpt3, y_pred)
+    #cm = confusion_matrix(y_test, y_pred)
 
     s = 'k= '+str(k)
 
-    scores = cross_val_score(classifier, X_test_chpt3, y_test_chpt3, cv=5)
-    accuracy = accuracy_score(y_test_chpt3, y_pred)
-    rmse = mean_squared_error(y_test_chpt3, y_pred)
-    mae = mean_absolute_error(y_test_chpt3, y_pred)
+    scores = cross_val_score(classifier, X_test, y_test, cv=5)
+    accuracy = accuracy_score(y_test, y_pred)
+    rmse = mean_squared_error(y_test, y_pred)
+    mae = mean_absolute_error(y_test, y_pred)
     kscore = scores.mean()
     kscore_stnd_dev = scores.std()
     # print('Classification Report for KNN:')
-    # print(classification_report(y_test_chpt3, y_pred, zero_division=1))
+    # print(classification_report(y_test, y_pred, zero_division=1))
 
     name = 'K-Nearest Neighbor'
 

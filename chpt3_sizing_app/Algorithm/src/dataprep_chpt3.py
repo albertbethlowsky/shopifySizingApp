@@ -77,19 +77,29 @@ def chpt3vals(gender, testsize):
     print(len(dataset))
     # print(X)
     # print(y)
+    if(testsize<0.50):
+        X_train, X_test, y_train, y_test = train_test_split(X,y,random_state=0, test_size=testsize)
+        
+        print(len(y_test))
+        #Rule of thumb: any algorithm that computes distance or assumes normality, scale your features!
+        #feature sacling
+        sc_X = StandardScaler()
+        X_train=sc_X.fit_transform(X_train)
+        X_test=sc_X.transform(X_test)
 
-    X_train, X_test, y_train, y_test = train_test_split(X,y,random_state=0, test_size=testsize)
-    
-    print(len(y_test))
-    #Rule of thumb: any algorithm that computes distance or assumes normality, scale your features!
-    #feature sacling
-    sc_X = StandardScaler()
-    X_train=sc_X.fit_transform(X_train)
+        return [X_train, X_test, y_train, y_test]
+    else:
+        X_train, X_test, y_train, y_test = train_test_split(X,y,random_state=0, test_size=testsize)
+        
+        print(len(y_test))
+        #Rule of thumb: any algorithm that computes distance or assumes normality, scale your features!
+        #feature sacling
+        sc_X = StandardScaler()
+        X_train=sc_X.fit_transform(X_train)
 
-    #X_test=sc_X.transform(X_test)
+        #X_test=sc_X.transform(X_test)
 
-    #using 100% of chpt3 data: 
-    X_test=sc_X.fit_transform(X)
-    y_test=y.sample(frac=1) #shuffle y
-    print(len(y_test))
-    return [X_train, X_test, y_train, y_test]
+        #using all of chpt3 data 
+        X_test=sc_X.fit_transform(X)
+        y_test=y.sample(frac=1) #shuffle y
+        return [X_train, X_test, y_train, y_test]
