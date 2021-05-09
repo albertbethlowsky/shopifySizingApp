@@ -60,15 +60,41 @@ def parse_product_size(input):
 
   
 
+def convert_bust_size(input):
+    s = str(input)
+    if s in '28':
+        return pd.Series(data=['60'])
+    elif s in '30':
+        return pd.Series(data=['65'])
+    elif s in '32':
+        return pd.Series(data=['70'])
+    elif s in '34':
+        return pd.Series(data=['75'])
+    elif s in '36':
+        return pd.Series(data=['80'])
+    elif s in '38':
+        return pd.Series(data=['85'])
+    elif s in '40':
+        return pd.Series(data=['90'])
+    elif s in '42':
+        return pd.Series(data=['95'])
+    elif s in '44':
+        return pd.Series(data=['100'])
+    elif s in '46':
+        return pd.Series(data=['105'])
+    elif s in '48':
+        return pd.Series(data=['110'])
+    else:
+        return pd.Series(data=['0'])
+
 def parse_product_category(s):
     tops = ['blazer', 'blouse', 'blouson', 'bomber', 'buttondown','cami', 'cardigan', 'coat', 'crewneck', 'henley', 'hoodie', 'jacket', 'overcoat', 'parka', 'peacoat', 'pullover', 'shirt', 'sweater', 'sweater', 'sweatershirt', 'sweatshirt', 'tank', 'tee', 'tops', 'trench', 't-shirt', 'turtleneck', 'vest']
     bottoms = ['culotte', 'culottes', 'jeans', 'jogger', 'legging', 'leggings', 'overalls', 'pant', 'pants', 'skirt', 'skirts', 'skort', 'sweatpants', 'trouser', 'trousers']
-    other = ['caftan', 'cape', 'combo', 'dress', 'duster', 'for', 'frock', 'gown', 'jumpsuit', 'kaftan', 'kimono', 'knit', 'maxi', 'midi','mini', 'poncho', 'print', 'romper', 'sheath', 'shift', 'shirtdress', 'suit', 'tight', 'tunic']
+    other = ['caftan', 'cape', 'combo', 'dress', 'duster', 'for', 'frock', 'gown', 'jumpsuit', 'kaftan', 'kimono', 'knit', 'maxi', 'midi','mini', 'poncho', 'print', 'romper', 'sheath', 'shift', 'shirtdress', 'suit', 'tight', 'tunic'] #not interested. 
     if any(s in index for index in tops):
         return pd.Series(data=['top'])
     elif any(s in index for index in bottoms):
         return pd.Series(data=['bottom'])
-    return pd.Series(data=['other'])
 
 def load_data(fp):
     with open(fp) as fid:
@@ -127,17 +153,26 @@ def create_csv(fileinput, fileoutput):
 
 
     mapper = {
-    0: 'bust_size_num', 
+    0: 'bust_size_num_us', 
     1: 'bust_size_cat'
     }
 
     #cleaned_df.info()
     temp_df = cleaned_df['bust_size'].apply(parse_bust_size).rename(mapper, axis=1)
-    temp_df['bust_size_num'] = pd.to_numeric(temp_df['bust_size_num'])
-    
     cleaned_df = cleaned_df.join(temp_df)
-
     cleaned_df.drop(['bust_size'], axis=1, inplace=True)
+
+    mapper = {
+    0: 'bust_size_num_eu', 
+    }
+
+    #Convert US into EU bustsize
+    #cleaned_df.product_size_old = cleaned_df['bust_size_num'].astype(object)
+    temp_df = cleaned_df['bust_size_num_us'].apply(convert_bust_size).rename(mapper, axis=1)
+    temp_df['bust_size_num_eu'] = pd.to_numeric(temp_df['bust_size_num_eu'])
+    cleaned_df = cleaned_df.join(temp_df)
+    cleaned_df.drop(['bust_size_num_us'], axis=1, inplace=True)
+
     cleaned_df['bmi'] = cleaned_df['weight_kg'] / np.power(cleaned_df['height_meters'], 2)
     cleaned_df.drop(['weight_kg', 'height_meters'], axis=1, inplace=True)
 

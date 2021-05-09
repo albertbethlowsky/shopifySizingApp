@@ -67,14 +67,21 @@ def chpt3vals(gender, testsize):
     dataset.bust_size_cat           = bust_size_cat_label
     
     #get list of unique values
-    dataset = dataset[['fit','product_size','body_type', 'age', 'bust_size_num', 'bust_size_cat', 'bmi', 'product_category']].copy()
+    dataset = dataset[['fit','product_size', 'bust_size_num_eu', 'bust_size_cat', 'bmi', 'product_category', 'age', 'body_type']].copy()
 
-    
+    dataset = dataset.sample(frac=1) #shuffle the dataset
+
     #plot_correlation(dataset)
     X = dataset.iloc[:,1:8] 
     y = dataset.iloc[:,0] #fit
-    print('size of chpt3 dataset: ')
-    print(len(dataset))
+    # print('this is chpt3 x')
+    # print(X.head(20))
+    # print(X.describe())
+    # X.info()
+    # print('this is chpt3 y:')
+    # print(y.head(20))
+    # print(y.describe())
+   
     # print(X)
     # print(y)
     if(testsize<0.50):
@@ -90,8 +97,6 @@ def chpt3vals(gender, testsize):
         return [X_train, X_test, y_train, y_test]
     else:
         X_train, X_test, y_train, y_test = train_test_split(X,y,random_state=0, test_size=testsize)
-        
-        print(len(y_test))
         #Rule of thumb: any algorithm that computes distance or assumes normality, scale your features!
         #feature sacling
         sc_X = StandardScaler()
@@ -99,7 +104,7 @@ def chpt3vals(gender, testsize):
 
         #X_test=sc_X.transform(X_test)
 
-        #using all of chpt3 data 
+        #using all of chpt3 
         X_test=sc_X.fit_transform(X)
         y_test=y.sample(frac=1) #shuffle y
         return [X_train, X_test, y_train, y_test]

@@ -59,7 +59,7 @@ def run_test(name, X_test, y_test, X_train, y_train):
 
 #__________________________INPUT VARIABLES_________________________#
 #clean runway data:
-import src.treat_RunWay as treat
+#import src.treat_RunWay as treat
 #treat.create_csv('C:/Users/Frederik/Desktop/shopifySizingApp/chpt3_sizing_app/Algorithm/Data/renttherunway_final_data.json', 'C:/Users/Frederik/Desktop/shopifySizingApp/chpt3_sizing_app/Algorithm/Data/clean_runway.csv')
 #print('done cleaning')
 
@@ -90,7 +90,7 @@ y_test_runway = l[3]
 #______DATA PREP END ________
 
 run_test(filename, X_test_chpt3, y_test_chpt3, X_train_runway, y_train_runway)
-
+print('-----TEST 1 DONE (chpt3_on_runway_maleandfemale_testsize100prct)------')
 
 #_______________________TEST 2:________________________________
 #| Chpt3 on Runway Trained Model, only female, 100 % chpt3 test set. |
@@ -119,7 +119,7 @@ y_test_runway = l[3]
 #______DATA PREP END ________
 
 run_test(filename, X_test_chpt3, y_test_chpt3, X_train_runway, y_train_runway)
-
+print('-----TEST 2 DONE (chpt3_on_runway_female_testsize100prct)------')
 
 #_______________________TEST 3:________________________________
 #| Chpt3 on Runway Trained Model, male and female, 20 % chpt3 test set. |
@@ -148,7 +148,7 @@ y_test_runway = l[3]
 #______DATA PREP END ________
 
 run_test(filename, X_test_chpt3, y_test_chpt3, X_train_runway, y_train_runway)
-
+print('-----TEST 3 DONE (chpt3_on_runway_maleandfemale_testsize20prct)------')
 #_______________________TEST 4:________________________________
 #| Runway on Runway Trained Model, 20 % runway test set. |
 
@@ -166,6 +166,7 @@ y_test_runway = l[3]
 #______DATA PREP END ________
 
 run_test(filename, X_test_runway, y_test_runway, X_train_runway, y_train_runway)
+print('-----TEST 4 DONE (runway_on_runway_maleandfemale_testsize20prct)------')
 
 #_______________________TEST 5:________________________________
 #| Runway on Runway Trained Model, 10 % runway test set. |
@@ -184,7 +185,7 @@ y_test_runway = l[3]
 #______DATA PREP END ________
 
 run_test(filename, X_test_runway, y_test_runway, X_train_runway, y_train_runway)
-
+print('-----TEST 5 DONE (runway_on_runway_maleandfemale_testsize10prct)------')
 #_______________________TEST 6:________________________________
 #| Chpt3 on Chpt3 Trained Model, male and female, 20 % chpt3 test set. |
 
@@ -204,7 +205,7 @@ y_test_chpt3 = l[3]
 
 run_test(filename, X_test_chpt3, y_test_chpt3, X_train_chpt3, y_train_chpt3)
 
-
+print('-----TEST 6 DONE (chpt3_on_chpt3_maleandfemale_testsize20prct)------')
 
 
 

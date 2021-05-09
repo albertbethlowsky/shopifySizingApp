@@ -49,7 +49,7 @@ def getresults(X_test, y_test, X_train, y_train):
     #print(cm)
     name = 'Support Vector Machine'
 
-    return [name, accuracy, rmse, mae, kscore, kscore_stnd_dev]
+    return [name,'N/A', accuracy, rmse, mae, kscore, kscore_stnd_dev]
 
 
 

@@ -64,11 +64,19 @@ def runwayvals(testsize):
     dataset.bust_size_cat           = bust_size_cat_label
 
     #get list of unique values
-    dataset = dataset[['fit','product_size','body_type', 'age', 'bust_size_num', 'bust_size_cat', 'bmi', 'product_category']].copy()
+    dataset = dataset[['fit','product_size', 'bust_size_num_eu', 'bust_size_cat', 'bmi', 'product_category', 'age', 'body_type']].copy()
     #plot_correlation(dataset)
     X = dataset.iloc[:,1:8] 
     y = dataset.iloc[:,0] #fit
 
+    # print('this is runway x')
+    # print(X.head(20))
+    # print(X.describe())
+    #X.info()
+    # print('this is runway y:')
+    # print(y.head(20))
+    # print(y.describe())
+    
     # print(X)
     # print(y)
 
