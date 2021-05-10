@@ -50,9 +50,6 @@ def runwayvals(testsize):
     le.fit(dataset.product_category)
     product_category_label = le.transform(dataset.product_category)
 
-    le.fit(dataset.product_size)
-    product_size_label = le.transform(dataset.product_size)
-
     le.fit(dataset.bust_size_cat)
     bust_size_cat_label = le.transform(dataset.bust_size_cat)
    
@@ -60,11 +57,11 @@ def runwayvals(testsize):
     dataset.fit                     = fit_label
     dataset.body_type               = body_type_label
     dataset.product_category        = product_category_label
-    dataset.product_size            = product_size_label
     dataset.bust_size_cat           = bust_size_cat_label
 
     #get list of unique values
-    dataset = dataset[['fit','product_size', 'bust_size_num_eu', 'bust_size_cat', 'bmi', 'product_category', 'age', 'body_type']].copy()
+    dataset = dataset[['fit','product_size', 'bust_size_num_eu', 'bust_size_cat', 'height_meters', 'weight_kg', 'product_category', 'age', 'body_type']].copy()
+
     #plot_correlation(dataset)
     X = dataset.iloc[:,1:8] 
     y = dataset.iloc[:,0] #fit

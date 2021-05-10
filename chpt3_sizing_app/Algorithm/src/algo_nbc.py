@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import seaborn as sns
+from time import time
 from pylab import rcParams
 import json
 from sklearn.model_selection import train_test_split # splits the data, part is training and part is testing
@@ -26,10 +27,11 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.model_selection import cross_val_score
 
 def getresults(X_test, y_test, X_train, y_train):
+    start = time()
     gnb = GaussianNB().fit(X_train, y_train) #train it with runway
-    
+    time_nbc = time()-start #seconds
 
-    gnb_predictions = gnb.predict(X_test) #predict with chpt3
+    y_pred = gnb.predict(X_test) #predict with chpt3
     
     # accuracy on X_test
    
@@ -38,15 +40,17 @@ def getresults(X_test, y_test, X_train, y_train):
     # creating a confusion matrix
     #cm = confusion_matrix(y_test_chpt3, gnb_predictions)
     scores = cross_val_score(gnb, X_test, y_test, cv=5)
-    accuracy = accuracy_score(y_test, gnb_predictions) #get prediction compared to actual sizes
-    rmse = mean_squared_error(y_test, gnb_predictions)
-    mae = mean_absolute_error(y_test, gnb_predictions)
+    accuracy = accuracy_score(y_test, y_pred) #get prediction compared to actual sizes
+    rmse = mean_squared_error(y_test, y_pred)
+    mae = mean_absolute_error(y_test, y_pred)
     kscore = scores.mean()
     kscore_stnd_dev = scores.std()
-    # print('Classification Report for KNN:')
-    # print(classification_report(y_test_chpt3, y_pred, zero_division=1))
+   
+    print(confusion_matrix(y_test,y_pred))
+    report = classification_report(y_test, y_pred, output_dict=True)
+    df = pd.DataFrame(report).transpose()
 
     name = 'Naive Bayes Classifier' 
 
-    return [name, 'N/A', accuracy, rmse, mae, kscore, kscore_stnd_dev]
+    return [[name, 'N/A', accuracy, rmse, mae, kscore, kscore_stnd_dev, time_nbc],df]
 

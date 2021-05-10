@@ -1,151 +1,154 @@
-item_id,product_name,product_category,product_size,fit,user_id,gender,age,height_cm,weight_kg,bmi,tummy_shape,hip_shape,breast_shape,body_type,bust_size_num_eu,bust_size_cat,above_chest_size,under_breast_size,waist_size,hip_size,cb_length,shoulder_width,thigh_width,innerleg_length
-1,baselayer,top,xxs,small,1,female,21,160,56,21.875,Average,Narrow,Large,full bust,75,E,92,77,67,92,51,38,54,67
-1,baselayer,top,xs,fit,1,female,21,160,56,21.875,Average,Narrow,Large,full bust,75,E,92,77,67,92,51,38,54,67
-1,baselayer,top,s,large,1,female,21,160,56,21.875,Average,Narrow,Large,full bust,75,E,92,77,67,92,51,38,54,67
-2,jersey,top,xxs,small,1,female,21,160,56,21.875,Average,Narrow,Large,full bust,75,E,92,77,67,92,51,38,54,67
-2,jersey,top,xs,fit,1,female,21,160,56,21.875,Average,Narrow,Large,full bust,75,E,92,77,67,92,51,38,54,67
-2,jersey,top,s,large,1,female,21,160,56,21.875,Average,Narrow,Large,full bust,75,E,92,77,67,92,51,38,54,67
-3,bib tights,bottom,xxs,small,1,female,21,160,56,21.875,Average,Narrow,Large,full bust,75,E,92,77,67,92,51,38,54,67
-3,bib tights,bottom,xs,fit,1,female,21,160,56,21.875,Average,Narrow,Large,full bust,75,E,92,77,67,92,51,38,54,67
-3,bib tights,bottom,s,large,1,female,21,160,56,21.875,Average,Narrow,Large,full bust,75,E,92,77,67,92,51,38,54,67
-1,baselayer,top,m,small,2,male,24,178,72.5,22.88221184,Average,Average,Large,striaght & narrow,0,NaN,100,NaN,70,84,58,49,55,74
-1,baselayer,top,l,fit,2,male,24,178,72.5,22.88221184,Average,Average,Large,striaght & narrow,0,NaN,100,NaN,70,84,58,49,55,74
-1,baselayer,top,xl,large,2,male,24,178,72.5,22.88221184,Average,Average,Large,striaght & narrow,0,NaN,100,NaN,70,84,58,49,55,74
-2,jersey,top,m,small,2,male,24,178,72.5,22.88221184,Average,Average,Large,striaght & narrow,0,NaN,100,NaN,70,84,58,49,55,74
-2,jersey,top,l,fit,2,male,24,178,72.5,22.88221184,Average,Average,Large,striaght & narrow,0,NaN,100,NaN,70,84,58,49,55,74
-2,jersey,top,xl,large,2,male,24,178,72.5,22.88221184,Average,Average,Large,striaght & narrow,0,NaN,100,NaN,70,84,58,49,55,74
-3,bib tights,bottom,xl,small,2,male,24,178,72.5,22.88221184,Average,Average,Large,striaght & narrow,0,NaN,100,NaN,70,84,58,49,55,74
-3,bib tights,bottom,xxl,fit,2,male,24,178,72.5,22.88221184,Average,Average,Large,striaght & narrow,0,NaN,100,NaN,70,84,58,49,55,74
-3,bib tights,bottom,xxxl,large,2,male,24,178,72.5,22.88221184,Average,Average,Large,striaght & narrow,0,NaN,100,NaN,70,84,58,49,55,74
-1,baselayer,top,l,small,3,male,24,183,85,25.38146854,flat,Average,Average,hourglass,0,NaN,104,NaN,86,89,59,52,63,72.5
-1,baselayer,top,xl,fit,3,male,24,183,85,25.38146854,flat,Average,Average,hourglass,0,NaN,104,NaN,86,89,59,52,63,72.5
-1,baselayer,top,xxl,large,3,male,24,183,85,25.38146854,flat,Average,Average,hourglass,0,NaN,104,NaN,86,89,59,52,63,72.5
-2,jersey,top,xl,small,3,male,24,183,85,25.38146854,flat,Average,Average,hourglass,0,NaN,104,NaN,86,89,59,52,63,72.5
-2,jersey,top,xxl,fit,3,male,24,183,85,25.38146854,flat,Average,Average,hourglass,0,NaN,104,NaN,86,89,59,52,63,72.5
-2,jersey,top,xxxl,large,3,male,24,183,85,25.38146854,flat,Average,Average,hourglass,0,NaN,104,NaN,86,89,59,52,63,72.5
-3,bib tights,bottom,xxl,small,3,male,24,183,85,25.38146854,flat,Average,Average,hourglass,0,NaN,104,NaN,86,89,59,52,63,72.5
-3,bib tights,bottom,xxxl,fit,3,male,24,183,85,25.38146854,flat,Average,Average,hourglass,0,NaN,104,NaN,86,89,59,52,63,72.5
-1,baselayer,top,m,small,4,male,24,189,81,22.67573696,average,average,average,striaght & narrow,0,NaN,94.5,NaN,83,88,57,46.5,64,73
-1,baselayer,top,l,fit,4,male,24,189,81,22.67573696,average,average,average,striaght & narrow,0,NaN,94.5,NaN,83,88,57,46.5,64,73
-1,baselayer,top,xl,large,4,male,24,189,81,22.67573696,average,average,average,striaght & narrow,0,NaN,94.5,NaN,83,88,57,46.5,64,73
-2,jersey,top,m,small,4,male,24,189,81,22.67573696,average,average,average,striaght & narrow,0,NaN,94.5,NaN,83,88,57,46.5,64,73
-2,jersey,top,l,fit,4,male,24,189,81,22.67573696,average,average,average,striaght & narrow,0,NaN,94.5,NaN,83,88,57,46.5,64,73
-2,jersey,top,xl,large,4,male,24,189,81,22.67573696,average,average,average,striaght & narrow,0,NaN,94.5,NaN,83,88,57,46.5,64,73
-3,bib tights,bottom,xxl,small,4,male,24,189,81,22.67573696,average,average,average,striaght & narrow,0,NaN,94.5,NaN,83,88,57,46.5,64,73
-3,bib tights,bottom,xxxl,fit,4,male,24,189,81,22.67573696,average,average,average,striaght & narrow,0,NaN,94.5,NaN,83,88,57,46.5,64,73
-1,baselayer,top,l,small,5,male,24,180,75,23.14814815,flat,narrow,Large,athletic,0,NaN,107,NaN,78,81.5,54,49,59,85
-1,baselayer,top,xl,fit,5,male,24,180,75,23.14814815,flat,narrow,Large,athletic,0,NaN,107,NaN,78,81.5,54,49,59,85
-1,baselayer,top,xxl,large,5,male,24,180,75,23.14814815,flat,narrow,Large,athletic,0,NaN,107,NaN,78,81.5,54,49,59,85
-2,jersey,top,xl,small,5,male,24,180,75,23.14814815,flat,narrow,Large,athletic,0,NaN,107,NaN,78,81.5,54,49,59,85
-2,jersey,top,xxl,fit,5,male,24,180,75,23.14814815,flat,narrow,Large,athletic,0,NaN,107,NaN,78,81.5,54,49,59,85
-2,jersey,top,xxxl,large,5,male,24,180,75,23.14814815,flat,narrow,Large,athletic,0,NaN,107,NaN,78,81.5,54,49,59,85
-3,bib tights,bottom,xl,small,5,male,24,180,75,23.14814815,flat,narrow,Large,athletic,0,NaN,107,NaN,78,81.5,54,49,59,85
-3,bib tights,bottom,xxl,fit,5,male,24,180,75,23.14814815,flat,narrow,Large,athletic,0,NaN,107,NaN,78,81.5,54,49,59,85
-3,bib tights,bottom,xxxl,large,5,male,24,180,75,23.14814815,flat,narrow,Large,athletic,0,NaN,107,NaN,78,81.5,54,49,59,85
-1,baselayer,top,l,small,6,male,25,180,80,24.69135802,average,wider,Large,hourglass,0,NaN,105,NaN,86,85,55,51,62,75
-1,baselayer,top,xl,fit,6,male,25,180,80,24.69135802,average,wider,Large,hourglass,0,NaN,105,NaN,86,85,55,51,62,75
-1,baselayer,top,xxl,large,6,male,25,180,80,24.69135802,average,wider,Large,hourglass,0,NaN,105,NaN,86,85,55,51,62,75
-2,jersey,top,m,small,6,male,25,180,80,24.69135802,average,wider,Large,hourglass,0,NaN,105,NaN,86,85,55,51,62,75
-2,jersey,top,l,fit,6,male,25,180,80,24.69135802,average,wider,Large,hourglass,0,NaN,105,NaN,86,85,55,51,62,75
-2,jersey,top,xl,large,6,male,25,180,80,24.69135802,average,wider,Large,hourglass,0,NaN,105,NaN,86,85,55,51,62,75
-3,bib tights,bottom,xl,small,6,male,25,180,80,24.69135802,average,wider,Large,hourglass,0,NaN,105,NaN,86,85,55,51,62,75
-3,bib tights,bottom,xxl,fit,6,male,25,180,80,24.69135802,average,wider,Large,hourglass,0,NaN,105,NaN,86,85,55,51,62,75
-3,bib tights,bottom,xxxl,large,6,male,25,180,80,24.69135802,average,wider,Large,hourglass,0,NaN,105,NaN,86,85,55,51,62,75
-1,baselayer,top,s,small,7,male,25,179.8,65.7,20.32291472,flat,average,average,hourglass,0,NaN,101,NaN,74,75,57,44.5,55,73
-1,baselayer,top,m,fit,7,male,25,179.8,65.7,20.32291472,flat,average,average,hourglass,0,NaN,101,NaN,74,75,57,44.5,55,73
-1,baselayer,top,l,large,7,male,25,179.8,65.7,20.32291472,flat,average,average,hourglass,0,NaN,101,NaN,74,75,57,44.5,55,73
-2,jersey,top,s,small,7,male,25,179.8,65.7,20.32291472,flat,average,average,hourglass,0,NaN,101,NaN,74,75,57,44.5,55,73
-2,jersey,top,m,fit,7,male,25,179.8,65.7,20.32291472,flat,average,average,hourglass,0,NaN,101,NaN,74,75,57,44.5,55,73
-2,jersey,top,l,large,7,male,25,179.8,65.7,20.32291472,flat,average,average,hourglass,0,NaN,101,NaN,74,75,57,44.5,55,73
-3,bib tights,bottom,m,small,7,male,25,179.8,65.7,20.32291472,flat,average,average,hourglass,0,NaN,101,NaN,74,75,57,44.5,55,73
-3,bib tights,bottom,l,fit,7,male,25,179.8,65.7,20.32291472,flat,average,average,hourglass,0,NaN,101,NaN,74,75,57,44.5,55,73
-3,bib tights,bottom,xl,large,7,male,25,179.8,65.7,20.32291472,flat,average,average,hourglass,0,NaN,101,NaN,74,75,57,44.5,55,73
-1,baselayer,top,xxs,small,8,female,21,166,58,21.04804761,Flat,Wider,Average,pear,70,e,83,69,66,89,53,42,58.5,69
-1,baselayer,top,xs,fit,8,female,21,166,58,21.04804761,Flat,Wider,Average,pear,70,e,83,69,66,89,53,42,58.5,69
-1,baselayer,top,s,large,8,female,21,166,58,21.04804761,Flat,Wider,Average,pear,70,e,83,69,66,89,53,42,58.5,69
-2,jersey,top,xxs,small,8,female,21,166,58,21.04804761,Flat,Wider,Average,pear,70,e,83,69,66,89,53,42,58.5,69
-2,jersey,top,xs,fit,8,female,21,166,58,21.04804761,Flat,Wider,Average,pear,70,e,83,69,66,89,53,42,58.5,69
-2,jersey,top,s,large,8,female,21,166,58,21.04804761,Flat,Wider,Average,pear,70,e,83,69,66,89,53,42,58.5,69
-3,bib tights,bottom,xs,small,8,female,21,166,58,21.04804761,Flat,Wider,Average,pear,70,e,83,69,66,89,53,42,58.5,69
-3,bib tights,bottom,s,fit,8,female,21,166,58,21.04804761,Flat,Wider,Average,pear,70,e,83,69,66,89,53,42,58.5,69
-3,bib tights,bottom,m,large,8,female,21,166,58,21.04804761,Flat,Wider,Average,pear,70,e,83,69,66,89,53,42,58.5,69
-1,baselayer,top,xs,small,9,female,22,173,64,21.383942,Average,Average,Average,striaght & narrow,70,c,89,77,77,91,61,45,62,72.5
-1,baselayer,top,s,fit,9,female,22,173,64,21.383942,Average,Average,Average,striaght & narrow,70,c,89,77,77,91,61,45,62,72.5
-1,baselayer,top,m,large,9,female,22,173,64,21.383942,Average,Average,Average,striaght & narrow,70,c,89,77,77,91,61,45,62,72.5
-2,jersey,top,xs,small,9,female,22,173,64,21.383942,Average,Average,Average,striaght & narrow,70,c,89,77,77,91,61,45,62,72.5
-2,jersey,top,s,fit,9,female,22,173,64,21.383942,Average,Average,Average,striaght & narrow,70,c,89,77,77,91,61,45,62,72.5
-2,jersey,top,l,large,9,female,22,173,64,21.383942,Average,Average,Average,striaght & narrow,70,c,89,77,77,91,61,45,62,72.5
-3,bib tights,bottom,s,small,9,female,22,173,64,21.383942,Average,Average,Average,striaght & narrow,70,c,89,77,77,91,61,45,62,72.5
-3,bib tights,bottom,m,fit,9,female,22,173,64,21.383942,Average,Average,Average,striaght & narrow,70,c,89,77,77,91,61,45,62,72.5
-3,bib tights,bottom,xl,large,9,female,22,173,64,21.383942,Average,Average,Average,striaght & narrow,70,c,89,77,77,91,61,45,62,72.5
-1,baselayer,top,m,small,10,male,22,172,77,26.02758248,Round/Curvy,Average,Average,apple,0,NaN,100.5,NaN,83,87,54,48.5,62,67
-1,baselayer,top,l,fit,10,male,22,172,77,26.02758248,Round/Curvy,Average,Average,apple,0,NaN,100.5,NaN,83,87,54,48.5,62,67
-1,baselayer,top,xl,large,10,male,22,172,77,26.02758248,Round/Curvy,Average,Average,apple,0,NaN,100.5,NaN,83,87,54,48.5,62,67
-2,jersey,top,m,small,10,male,22,172,77,26.02758248,Round/Curvy,Average,Average,apple,0,NaN,100.5,NaN,83,87,54,48.5,62,67
-2,jersey,top,l,fit,10,male,22,172,77,26.02758248,Round/Curvy,Average,Average,apple,0,NaN,100.5,NaN,83,87,54,48.5,62,67
-2,jersey,top,xl,large,10,male,22,172,77,26.02758248,Round/Curvy,Average,Average,apple,0,NaN,100.5,NaN,83,87,54,48.5,62,67
-3,bib tights,bottom,l,small,10,male,22,172,77,26.02758248,Round/Curvy,Average,Average,apple,0,NaN,100.5,NaN,83,87,54,48.5,62,67
-3,bib tights,bottom,xl,fit,10,male,22,172,77,26.02758248,Round/Curvy,Average,Average,apple,0,NaN,100.5,NaN,83,87,54,48.5,62,67
-3,bib tights,bottom,xxl,large,10,male,22,172,77,26.02758248,Round/Curvy,Average,Average,apple,0,NaN,100.5,NaN,83,87,54,48.5,62,67
-1,baselayer,top,xxs,small,11,female,23,172,59,19.94321255,Average,Average,Small,pear,65,b,86.2,76,67,84,52,45,51,64
-1,baselayer,top,xs,fit,11,female,23,172,59,19.94321255,Average,Average,Small,pear,65,b,86.2,76,67,84,52,45,51,64
-1,baselayer,top,s,large,11,female,23,172,59,19.94321255,Average,Average,Small,pear,65,b,86.2,76,67,84,52,45,51,64
-2,jersey,top,xxs,small,11,female,23,172,59,19.94321255,Average,Average,Small,pear,65,b,86.2,76,67,84,52,45,51,64
-2,jersey,top,xs,fit,11,female,23,172,59,19.94321255,Average,Average,Small,pear,65,b,86.2,76,67,84,52,45,51,64
-2,jersey,top,s,large,11,female,23,172,59,19.94321255,Average,Average,Small,pear,65,b,86.2,76,67,84,52,45,51,64
-3,bib tights,bottom,xs,small,11,female,23,172,59,19.94321255,Average,Average,Small,pear,65,b,86.2,76,67,84,52,45,51,64
-3,bib tights,bottom,s,fit,11,female,23,172,59,19.94321255,Average,Average,Small,pear,65,b,86.2,76,67,84,52,45,51,64
-3,bib tights,bottom,m,large,11,female,23,172,59,19.94321255,Average,Average,Small,pear,65,b,86.2,76,67,84,52,45,51,64
-1,baselayer,top,xs,small,12,female,22,178.4,62.5,19.63768626,Flat,Average,Small,pear,65,c,85,80,73,86,54,42.5,58.5,75.5
-1,baselayer,top,s,fit,12,female,22,178.4,62.5,19.63768626,Flat,Average,Small,pear,65,c,85,80,73,86,54,42.5,58.5,75.5
-1,baselayer,top,m,large,12,female,22,178.4,62.5,19.63768626,Flat,Average,Small,pear,65,c,85,80,73,86,54,42.5,58.5,75.5
-2,jersey,top,xs,small,12,female,22,178.4,62.5,19.63768626,Flat,Average,Small,pear,65,c,85,80,73,86,54,42.5,58.5,75.5
-2,jersey,top,s,fit,12,female,22,178.4,62.5,19.63768626,Flat,Average,Small,pear,65,c,85,80,73,86,54,42.5,58.5,75.5
-2,jersey,top,m,large,12,female,22,178.4,62.5,19.63768626,Flat,Average,Small,pear,65,c,85,80,73,86,54,42.5,58.5,75.5
-3,bib tights,bottom,xs,small,12,female,22,178.4,62.5,19.63768626,Flat,Average,Small,pear,65,c,85,80,73,86,54,42.5,58.5,75.5
-3,bib tights,bottom,s,fit,12,female,22,178.4,62.5,19.63768626,Flat,Average,Small,pear,65,c,85,80,73,86,54,42.5,58.5,75.5
-3,bib tights,bottom,m,large,12,female,22,178.4,62.5,19.63768626,Flat,Average,Small,pear,65,c,85,80,73,86,54,42.5,58.5,75.5
-1,baselayer,top,l,small,13,male,23,190,85,23.54570637,Flat,Average,Average,hourglass,0,NaN,90,NaN,79,97,63,48,59,74
-1,baselayer,top,xl,fit,13,male,23,190,85,23.54570637,Flat,Average,Average,hourglass,0,NaN,90,NaN,79,97,63,48,59,74
-1,baselayer,top,xxl,large,13,male,23,190,85,23.54570637,Flat,Average,Average,hourglass,0,NaN,90,NaN,79,97,63,48,59,74
-2,jersey,top,xl,small,13,male,23,190,85,23.54570637,Flat,Average,Average,hourglass,0,NaN,90,NaN,79,97,63,48,59,74
-2,jersey,top,xxl,fit,13,male,23,190,85,23.54570637,Flat,Average,Average,hourglass,0,NaN,90,NaN,79,97,63,48,59,74
-2,jersey,top,xxxl,large,13,male,23,190,85,23.54570637,Flat,Average,Average,hourglass,0,NaN,90,NaN,79,97,63,48,59,74
-3,bib tights,bottom,xxl,small,13,male,23,190,85,23.54570637,Flat,Average,Average,hourglass,0,NaN,90,NaN,79,97,63,48,59,74
-3,bib tights,bottom,xxxl,fit,13,male,23,190,85,23.54570637,Flat,Average,Average,hourglass,0,NaN,90,NaN,79,97,63,48,59,74
-1,baselayer,top,m,small,14,female,24,177,83,26.49302563,Average,Wider,Large,hourglass,75,g,99,89,84,98,56,48,65.5,70.5
-1,baselayer,top,l,fit,14,female,24,177,83,26.49302563,Average,Wider,Large,hourglass,75,g,99,89,84,98,56,48,65.5,70.5
-1,baselayer,top,xl,large,14,female,24,177,83,26.49302563,Average,Wider,Large,hourglass,75,g,99,89,84,98,56,48,65.5,70.5
-2,jersey,top,l,small,14,female,24,177,83,26.49302563,Average,Wider,Large,hourglass,75,g,99,89,84,98,56,48,65.5,70.5
-2,jersey,top,xl,fit,14,female,24,177,83,26.49302563,Average,Wider,Large,hourglass,75,g,99,89,84,98,56,48,65.5,70.5
-2,jersey,top,xxl,large,14,female,24,177,83,26.49302563,Average,Wider,Large,hourglass,75,g,99,89,84,98,56,48,65.5,70.5
-3,bib tights,bottom,xl,small,14,female,24,177,83,26.49302563,Average,Wider,Large,hourglass,75,g,99,89,84,98,56,48,65.5,70.5
-3,bib tights,bottom,xxl,fit,14,female,24,177,83,26.49302563,Average,Wider,Large,hourglass,75,g,99,89,84,98,56,48,65.5,70.5
-3,bib tights,bottom,xxxl,large,14,female,24,177,83,26.49302563,Average,Wider,Large,hourglass,75,g,99,89,84,98,56,48,65.5,70.5
-1,baselayer,top,xxs,small,15,female,21,172,58,19.605192,Flat,Average,Small,pear,75,a,81.5,75.5,68,78,49.5,40,57,68
-1,baselayer,top,xs,fit,15,female,21,172,58,19.605192,Flat,Average,Small,pear,75,a,81.5,75.5,68,78,49.5,40,57,68
-1,baselayer,top,m,large,15,female,21,172,58,19.605192,Flat,Average,Small,pear,75,a,81.5,75.5,68,78,49.5,40,57,68
-2,jersey,top,xxs,small,15,female,21,172,58,19.605192,Flat,Average,Small,pear,75,a,81.5,75.5,68,78,49.5,40,57,68
-2,jersey,top,xs,fit,15,female,21,172,58,19.605192,Flat,Average,Small,pear,75,a,81.5,75.5,68,78,49.5,40,57,68
-2,jersey,top,m,large,15,female,21,172,58,19.605192,Flat,Average,Small,pear,75,a,81.5,75.5,68,78,49.5,40,57,68
-3,bib tights,bottom,s,small,15,female,21,172,58,19.605192,Flat,Average,Small,pear,75,a,81.5,75.5,68,78,49.5,40,57,68
-3,bib tights,bottom,m,fit,15,female,21,172,58,19.605192,Flat,Average,Small,pear,75,a,81.5,75.5,68,78,49.5,40,57,68
-3,bib tights,bottom,l,large,15,female,21,172,58,19.605192,Flat,Average,Small,pear,75,a,81.5,75.5,68,78,49.5,40,57,68
-1,baselayer,top,m,small,16,male,23,175,75,24.48979592,Average,Average,Large,athletic,0,NaN,106,NaN,81,89,60,48.5,60,65
-1,baselayer,top,l,fit,16,male,23,175,75,24.48979592,Average,Average,Large,athletic,0,NaN,106,NaN,81,89,60,48.5,60,65
-1,baselayer,top,xl,large,16,male,23,175,75,24.48979592,Average,Average,Large,athletic,0,NaN,106,NaN,81,89,60,48.5,60,65
-2,jersey,top,m,small,16,male,23,175,75,24.48979592,Average,Average,Large,athletic,0,NaN,106,NaN,81,89,60,48.5,60,65
-2,jersey,top,l,fit,16,male,23,175,75,24.48979592,Average,Average,Large,athletic,0,NaN,106,NaN,81,89,60,48.5,60,65
-2,jersey,top,xl,large,16,male,23,175,75,24.48979592,Average,Average,Large,athletic,0,NaN,106,NaN,81,89,60,48.5,60,65
-3,bib tights,bottom,xl,small,16,male,23,175,75,24.48979592,Average,Average,Large,athletic,0,NaN,106,NaN,81,89,60,48.5,60,65
-3,bib tights,bottom,xxl,fit,16,male,23,175,75,24.48979592,Average,Average,Large,athletic,0,NaN,106,NaN,81,89,60,48.5,60,65
-3,bib tights,bottom,xxxl,large,16,male,23,175,75,24.48979592,Average,Average,Large,athletic,0,NaN,106,NaN,81,89,60,48.5,60,65
-1,baselayer,top,xs,small,17,female,21,160,63,24.609375,Average,Average,Large,athletic,70,d,87,80,76,91,53,42,61,67
-1,baselayer,top,s,fit,17,female,21,160,63,24.609375,Average,Average,Large,athletic,70,d,87,80,76,91,53,42,61,67
-1,baselayer,top,m,large,17,female,21,160,63,24.609375,Average,Average,Large,athletic,70,d,87,80,76,91,53,42,61,67
-2,jersey,top,xs,small,17,female,21,160,63,24.609375,Average,Average,Large,athletic,70,d,87,80,76,91,53,42,61,67
-2,jersey,top,s,fit,17,female,21,160,63,24.609375,Average,Average,Large,athletic,70,d,87,80,76,91,53,42,61,67
-2,jersey,top,m,large,17,female,21,160,63,24.609375,Average,Average,Large,athletic,70,d,87,80,76,91,53,42,61,67
-3,bib tights,bottom,xs,small,17,female,21,160,63,24.609375,Average,Average,Large,athletic,70,d,87,80,76,91,53,42,61,67
-3,bib tights,bottom,s,fit,17,female,21,160,63,24.609375,Average,Average,Large,athletic,70,d,87,80,76,91,53,42,61,67
-3,bib tights,bottom,m,large,17,female,21,160,63,24.609375,Average,Average,Large,athletic,70,d,87,80,76,91,53,42,61,67
+item_id,product_name,product_category,product_size,fit,user_id,gender,age,height_meters,weight_kg,bmi,tummy_shape,hip_shape,breast_shape,body_type,bust_size_num_eu,bust_size_cat,above_chest_size,under_breast_size,waist_size,hip_size,cb_length,shoulder_width,thigh_width,innerleg_length
+3,bib tights,bottom,1.944444444,small,1,female,21,1.6,56,21.875,Average,Narrow,Large,full bust,75,e,92,77,67,92,51,38,54,67
+1,baselayer,top,1.944444444,small,1,female,21,1.6,56,21.875,Average,Narrow,Large,full bust,75,e,92,77,67,92,51,38,54,67
+2,jersey,top,1.944444444,small,1,female,21,1.6,56,21.875,Average,Narrow,Large,full bust,75,e,92,77,67,92,51,38,54,67
+1,baselayer,top,1.944444444,small,8,female,21,1.66,58,21.04804761,Flat,Wider,Average,pear,70,e,83,69,66,89,53,42,58.5,69
+2,jersey,top,1.944444444,small,8,female,21,1.66,58,21.04804761,Flat,Wider,Average,pear,70,e,83,69,66,89,53,42,58.5,69
+1,baselayer,top,1.944444444,small,11,female,23,1.72,59,19.94321255,Average,Average,Small,pear,65,b,86.2,76,67,84,52,45,51,64
+2,jersey,top,1.944444444,small,11,female,23,1.72,59,19.94321255,Average,Average,Small,pear,65,b,86.2,76,67,84,52,45,51,64
+1,baselayer,top,1.944444444,small,15,female,21,1.72,58,19.605192,Flat,Average,Small,pear,75,a,81.5,75.5,68,78,49.5,40,57,68
+2,jersey,top,1.944444444,small,15,female,21,1.72,58,19.605192,Flat,Average,Small,pear,75,a,81.5,75.5,68,78,49.5,40,57,68
+3,bib tights,bottom,5.833333333,fit,1,female,21,1.6,56,21.875,Average,Narrow,Large,full bust,75,e,92,77,67,92,51,38,54,67
+1,baselayer,top,5.833333333,fit,1,female,21,1.6,56,21.875,Average,Narrow,Large,full bust,75,e,92,77,67,92,51,38,54,67
+2,jersey,top,5.833333333,fit,1,female,21,1.6,56,21.875,Average,Narrow,Large,full bust,75,e,92,77,67,92,51,38,54,67
+3,bib tights,bottom,5.833333333,small,8,female,21,1.66,58,21.04804761,Flat,Wider,Average,pear,70,e,83,69,66,89,53,42,58.5,69
+1,baselayer,top,5.833333333,fit,8,female,21,1.66,58,21.04804761,Flat,Wider,Average,pear,70,e,83,69,66,89,53,42,58.5,69
+2,jersey,top,5.833333333,fit,8,female,21,1.66,58,21.04804761,Flat,Wider,Average,pear,70,e,83,69,66,89,53,42,58.5,69
+1,baselayer,top,5.833333333,small,9,female,22,1.73,64,21.383942,Average,Average,Average,striaght & narrow,70,c,89,77,77,91,61,45,62,72.5
+2,jersey,top,5.833333333,small,9,female,22,1.73,64,21.383942,Average,Average,Average,striaght & narrow,70,c,89,77,77,91,61,45,62,72.5
+3,bib tights,bottom,5.833333333,small,11,female,23,1.72,59,19.94321255,Average,Average,Small,pear,65,b,86.2,76,67,84,52,45,51,64
+1,baselayer,top,5.833333333,fit,11,female,23,1.72,59,19.94321255,Average,Average,Small,pear,65,b,86.2,76,67,84,52,45,51,64
+2,jersey,top,5.833333333,fit,11,female,23,1.72,59,19.94321255,Average,Average,Small,pear,65,b,86.2,76,67,84,52,45,51,64
+3,bib tights,bottom,5.833333333,small,12,female,22,1.784,62.5,19.63768626,Flat,Average,Small,pear,65,c,85,80,73,86,54,42.5,58.5,75.5
+1,baselayer,top,5.833333333,small,12,female,22,1.784,62.5,19.63768626,Flat,Average,Small,pear,65,c,85,80,73,86,54,42.5,58.5,75.5
+2,jersey,top,5.833333333,small,12,female,22,1.784,62.5,19.63768626,Flat,Average,Small,pear,65,c,85,80,73,86,54,42.5,58.5,75.5
+1,baselayer,top,5.833333333,fit,15,female,21,1.72,58,19.605192,Flat,Average,Small,pear,75,a,81.5,75.5,68,78,49.5,40,57,68
+2,jersey,top,5.833333333,fit,15,female,21,1.72,58,19.605192,Flat,Average,Small,pear,75,a,81.5,75.5,68,78,49.5,40,57,68
+3,bib tights,bottom,5.833333333,small,17,female,21,1.6,63,24.609375,Average,Average,Large,athletic,70,d,87,80,76,91,53,42,61,67
+1,baselayer,top,5.833333333,small,17,female,21,1.6,63,24.609375,Average,Average,Large,athletic,70,d,87,80,76,91,53,42,61,67
+2,jersey,top,5.833333333,small,17,female,21,1.6,63,24.609375,Average,Average,Large,athletic,70,d,87,80,76,91,53,42,61,67
+3,bib tights,bottom,9.722222222,large,1,female,21,1.6,56,21.875,Average,Narrow,Large,full bust,75,e,92,77,67,92,51,38,54,67
+1,baselayer,top,9.722222222,large,1,female,21,1.6,56,21.875,Average,Narrow,Large,full bust,75,e,92,77,67,92,51,38,54,67
+2,jersey,top,9.722222222,large,1,female,21,1.6,56,21.875,Average,Narrow,Large,full bust,75,e,92,77,67,92,51,38,54,67
+1,baselayer,top,9.722222222,small,7,male,25,1.798,65.7,20.32291472,flat,average,average,hourglass,0,NaN,101,NaN,74,75,57,44.5,55,73
+2,jersey,top,9.722222222,small,7,male,25,1.798,65.7,20.32291472,flat,average,average,hourglass,0,NaN,101,NaN,74,75,57,44.5,55,73
+3,bib tights,bottom,9.722222222,fit,8,female,21,1.66,58,21.04804761,Flat,Wider,Average,pear,70,e,83,69,66,89,53,42,58.5,69
+1,baselayer,top,9.722222222,large,8,female,21,1.66,58,21.04804761,Flat,Wider,Average,pear,70,e,83,69,66,89,53,42,58.5,69
+2,jersey,top,9.722222222,large,8,female,21,1.66,58,21.04804761,Flat,Wider,Average,pear,70,e,83,69,66,89,53,42,58.5,69
+3,bib tights,bottom,9.722222222,small,9,female,22,1.73,64,21.383942,Average,Average,Average,striaght & narrow,70,c,89,77,77,91,61,45,62,72.5
+1,baselayer,top,9.722222222,fit,9,female,22,1.73,64,21.383942,Average,Average,Average,striaght & narrow,70,c,89,77,77,91,61,45,62,72.5
+2,jersey,top,9.722222222,fit,9,female,22,1.73,64,21.383942,Average,Average,Average,striaght & narrow,70,c,89,77,77,91,61,45,62,72.5
+3,bib tights,bottom,9.722222222,fit,11,female,23,1.72,59,19.94321255,Average,Average,Small,pear,65,b,86.2,76,67,84,52,45,51,64
+1,baselayer,top,9.722222222,large,11,female,23,1.72,59,19.94321255,Average,Average,Small,pear,65,b,86.2,76,67,84,52,45,51,64
+2,jersey,top,9.722222222,large,11,female,23,1.72,59,19.94321255,Average,Average,Small,pear,65,b,86.2,76,67,84,52,45,51,64
+3,bib tights,bottom,9.722222222,fit,12,female,22,1.784,62.5,19.63768626,Flat,Average,Small,pear,65,c,85,80,73,86,54,42.5,58.5,75.5
+1,baselayer,top,9.722222222,fit,12,female,22,1.784,62.5,19.63768626,Flat,Average,Small,pear,65,c,85,80,73,86,54,42.5,58.5,75.5
+2,jersey,top,9.722222222,fit,12,female,22,1.784,62.5,19.63768626,Flat,Average,Small,pear,65,c,85,80,73,86,54,42.5,58.5,75.5
+3,bib tights,bottom,9.722222222,small,15,female,21,1.72,58,19.605192,Flat,Average,Small,pear,75,a,81.5,75.5,68,78,49.5,40,57,68
+3,bib tights,bottom,9.722222222,fit,17,female,21,1.6,63,24.609375,Average,Average,Large,athletic,70,d,87,80,76,91,53,42,61,67
+1,baselayer,top,9.722222222,fit,17,female,21,1.6,63,24.609375,Average,Average,Large,athletic,70,d,87,80,76,91,53,42,61,67
+2,jersey,top,9.722222222,fit,17,female,21,1.6,63,24.609375,Average,Average,Large,athletic,70,d,87,80,76,91,53,42,61,67
+1,baselayer,top,13.61111111,small,2,male,24,1.78,72.5,22.88221184,Average,Average,Large,striaght & narrow,0,NaN,100,NaN,70,84,58,49,55,74
+2,jersey,top,13.61111111,small,2,male,24,1.78,72.5,22.88221184,Average,Average,Large,striaght & narrow,0,NaN,100,NaN,70,84,58,49,55,74
+1,baselayer,top,13.61111111,small,4,male,24,1.89,81,22.67573696,average,average,average,striaght & narrow,0,NaN,94.50,NaN,83,88,57,46.5,64,73
+2,jersey,top,13.61111111,small,4,male,24,1.89,81,22.67573696,average,average,average,striaght & narrow,0,NaN,94.50,NaN,83,88,57,46.5,64,73
+2,jersey,top,13.61111111,small,6,male,25,1.8,80,24.69135802,average,wider,Large,hourglass,0,NaN,105,NaN,86,85,55,51,62,75
+3,bib tights,bottom,13.61111111,small,7,male,25,1.798,65.7,20.32291472,flat,average,average,hourglass,0,NaN,101,NaN,74,75,57,44.5,55,73
+1,baselayer,top,13.61111111,fit,7,male,25,1.798,65.7,20.32291472,flat,average,average,hourglass,0,NaN,101,NaN,74,75,57,44.5,55,73
+2,jersey,top,13.61111111,fit,7,male,25,1.798,65.7,20.32291472,flat,average,average,hourglass,0,NaN,101,NaN,74,75,57,44.5,55,73
+3,bib tights,bottom,13.61111111,large,8,female,21,1.66,58,21.04804761,Flat,Wider,Average,pear,70,e,83,69,66,89,53,42,58.5,69
+3,bib tights,bottom,13.61111111,fit,9,female,22,1.73,64,21.383942,Average,Average,Average,striaght & narrow,70,c,89,77,77,91,61,45,62,72.5
+1,baselayer,top,13.61111111,large,9,female,22,1.73,64,21.383942,Average,Average,Average,striaght & narrow,70,c,89,77,77,91,61,45,62,72.5
+1,baselayer,top,13.61111111,small,10,male,22,1.72,77,26.02758248,Round/Curvy,Average,Average,apple,0,NaN,100.5,NaN,83,87,54,48.5,62,67
+2,jersey,top,13.61111111,small,10,male,22,1.72,77,26.02758248,Round/Curvy,Average,Average,apple,0,NaN,100.5,NaN,83,87,54,48.5,62,67
+3,bib tights,bottom,13.61111111,large,11,female,23,1.72,59,19.94321255,Average,Average,Small,pear,65,b,86.2,76,67,84,52,45,51,64
+3,bib tights,bottom,13.61111111,large,12,female,22,1.784,62.5,19.63768626,Flat,Average,Small,pear,65,c,85,80,73,86,54,42.5,58.5,75.5
+1,baselayer,top,13.61111111,large,12,female,22,1.784,62.5,19.63768626,Flat,Average,Small,pear,65,c,85,80,73,86,54,42.5,58.5,75.5
+2,jersey,top,13.61111111,large,12,female,22,1.784,62.5,19.63768626,Flat,Average,Small,pear,65,c,85,80,73,86,54,42.5,58.5,75.5
+1,baselayer,top,13.61111111,small,14,female,24,1.77,83,26.49302563,Average,Wider,Large,hourglass,75,g,99,89,84,98,56,48,65.5,70.5
+3,bib tights,bottom,13.61111111,fit,15,female,21,1.72,58,19.605192,Flat,Average,Small,pear,75,a,81.5,75.5,68,78,49.5,40,57,68
+1,baselayer,top,13.61111111,large,15,female,21,1.72,58,19.605192,Flat,Average,Small,pear,75,a,81.5,75.5,68,78,49.5,40,57,68
+2,jersey,top,13.61111111,large,15,female,21,1.72,58,19.605192,Flat,Average,Small,pear,75,a,81.5,75.5,68,78,49.5,40,57,68
+1,baselayer,top,13.61111111,small,16,male,23,1.75,75,24.48979592,Average,Average,Large,athletic,0,NaN,106,NaN,81,89,60,48.5,60,65
+2,jersey,top,13.61111111,small,16,male,23,1.75,75,24.48979592,Average,Average,Large,athletic,0,NaN,106,NaN,81,89,60,48.5,60,65
+3,bib tights,bottom,13.61111111,large,17,female,21,1.6,63,24.609375,Average,Average,Large,athletic,70,d,87,80,76,91,53,42,61,67
+1,baselayer,top,13.61111111,large,17,female,21,1.6,63,24.609375,Average,Average,Large,athletic,70,d,87,80,76,91,53,42,61,67
+2,jersey,top,13.61111111,large,17,female,21,1.6,63,24.609375,Average,Average,Large,athletic,70,d,87,80,76,91,53,42,61,67
+1,baselayer,top,17.5,fit,2,male,24,1.78,72.5,22.88221184,Average,Average,Large,striaght & narrow,0,NaN,100,NaN,70,84,58,49,55,74
+2,jersey,top,17.5,fit,2,male,24,1.78,72.5,22.88221184,Average,Average,Large,striaght & narrow,0,NaN,100,NaN,70,84,58,49,55,74
+1,baselayer,top,17.5,small,3,male,24,1.83,85,25.38146854,flat,Average,Average,hourglass,0,NaN,104,NaN,86,89,59,52,63,72.5
+1,baselayer,top,17.5,fit,4,male,24,1.89,81,22.67573696,average,average,average,striaght & narrow,0,NaN,94.50,NaN,83,88,57,46.5,64,73
+2,jersey,top,17.5,fit,4,male,24,1.89,81,22.67573696,average,average,average,striaght & narrow,0,NaN,94.50,NaN,83,88,57,46.5,64,73
+1,baselayer,top,17.5,small,5,male,24,1.8,75,23.14814815,flat,narrow,Large,athletic,0,NaN,107,NaN,78,81.5,54,49,59,85
+1,baselayer,top,17.5,small,6,male,25,1.8,80,24.69135802,average,wider,Large,hourglass,0,NaN,105,NaN,86,85,55,51,62,75
+2,jersey,top,17.5,fit,6,male,25,1.8,80,24.69135802,average,wider,Large,hourglass,0,NaN,105,NaN,86,85,55,51,62,75
+3,bib tights,bottom,17.5,fit,7,male,25,1.798,65.7,20.32291472,flat,average,average,hourglass,0,NaN,101,NaN,74,75,57,44.5,55,73
+1,baselayer,top,17.5,large,7,male,25,1.798,65.7,20.32291472,flat,average,average,hourglass,0,NaN,101,NaN,74,75,57,44.5,55,73
+2,jersey,top,17.5,large,7,male,25,1.798,65.7,20.32291472,flat,average,average,hourglass,0,NaN,101,NaN,74,75,57,44.5,55,73
+2,jersey,top,17.5,large,9,female,22,1.73,64,21.383942,Average,Average,Average,striaght & narrow,70,c,89,77,77,91,61,45,62,72.5
+3,bib tights,bottom,17.5,small,10,male,22,1.72,77,26.02758248,Round/Curvy,Average,Average,apple,0,NaN,100.5,NaN,83,87,54,48.5,62,67
+1,baselayer,top,17.5,fit,10,male,22,1.72,77,26.02758248,Round/Curvy,Average,Average,apple,0,NaN,100.5,NaN,83,87,54,48.5,62,67
+2,jersey,top,17.5,fit,10,male,22,1.72,77,26.02758248,Round/Curvy,Average,Average,apple,0,NaN,100.5,NaN,83,87,54,48.5,62,67
+1,baselayer,top,17.5,small,13,male,23,1.9,85,23.54570637,Flat,Average,Average,hourglass,0,NaN,90,NaN,79,97,63,48,59,74
+1,baselayer,top,17.5,fit,14,female,24,1.77,83,26.49302563,Average,Wider,Large,hourglass,75,g,99,89,84,98,56,48,65.5,70.5
+2,jersey,top,17.5,small,14,female,24,1.77,83,26.49302563,Average,Wider,Large,hourglass,75,g,99,89,84,98,56,48,65.5,70.5
+3,bib tights,bottom,17.5,large,15,female,21,1.72,58,19.605192,Flat,Average,Small,pear,75,a,81.5,75.5,68,78,49.5,40,57,68
+1,baselayer,top,17.5,fit,16,male,23,1.75,75,24.48979592,Average,Average,Large,athletic,0,NaN,106,NaN,81,89,60,48.5,60,65
+2,jersey,top,17.5,fit,16,male,23,1.75,75,24.48979592,Average,Average,Large,athletic,0,NaN,106,NaN,81,89,60,48.5,60,65
+3,bib tights,bottom,21.38888889,small,2,male,24,1.78,72.5,22.88221184,Average,Average,Large,striaght & narrow,0,NaN,100,NaN,70,84,58,49,55,74
+1,baselayer,top,21.38888889,large,2,male,24,1.78,72.5,22.88221184,Average,Average,Large,striaght & narrow,0,NaN,100,NaN,70,84,58,49,55,74
+2,jersey,top,21.38888889,large,2,male,24,1.78,72.5,22.88221184,Average,Average,Large,striaght & narrow,0,NaN,100,NaN,70,84,58,49,55,74
+1,baselayer,top,21.38888889,fit,3,male,24,1.83,85,25.38146854,flat,Average,Average,hourglass,0,NaN,104,NaN,86,89,59,52,63,72.5
+2,jersey,top,21.38888889,small,3,male,24,1.83,85,25.38146854,flat,Average,Average,hourglass,0,NaN,104,NaN,86,89,59,52,63,72.5
+1,baselayer,top,21.38888889,large,4,male,24,1.89,81,22.67573696,average,average,average,striaght & narrow,0,NaN,94.50,NaN,83,88,57,46.5,64,73
+2,jersey,top,21.38888889,large,4,male,24,1.89,81,22.67573696,average,average,average,striaght & narrow,0,NaN,94.50,NaN,83,88,57,46.5,64,73
+3,bib tights,bottom,21.38888889,small,5,male,24,1.8,75,23.14814815,flat,narrow,Large,athletic,0,NaN,107,NaN,78,81.5,54,49,59,85
+1,baselayer,top,21.38888889,fit,5,male,24,1.8,75,23.14814815,flat,narrow,Large,athletic,0,NaN,107,NaN,78,81.5,54,49,59,85
+2,jersey,top,21.38888889,small,5,male,24,1.8,75,23.14814815,flat,narrow,Large,athletic,0,NaN,107,NaN,78,81.5,54,49,59,85
+3,bib tights,bottom,21.38888889,small,6,male,25,1.8,80,24.69135802,average,wider,Large,hourglass,0,NaN,105,NaN,86,85,55,51,62,75
+1,baselayer,top,21.38888889,fit,6,male,25,1.8,80,24.69135802,average,wider,Large,hourglass,0,NaN,105,NaN,86,85,55,51,62,75
+2,jersey,top,21.38888889,large,6,male,25,1.8,80,24.69135802,average,wider,Large,hourglass,0,NaN,105,NaN,86,85,55,51,62,75
+3,bib tights,bottom,21.38888889,large,7,male,25,1.798,65.7,20.32291472,flat,average,average,hourglass,0,NaN,101,NaN,74,75,57,44.5,55,73
+3,bib tights,bottom,21.38888889,large,9,female,22,1.73,64,21.383942,Average,Average,Average,striaght & narrow,70,c,89,77,77,91,61,45,62,72.5
+3,bib tights,bottom,21.38888889,fit,10,male,22,1.72,77,26.02758248,Round/Curvy,Average,Average,apple,0,NaN,100.5,NaN,83,87,54,48.5,62,67
+1,baselayer,top,21.38888889,large,10,male,22,1.72,77,26.02758248,Round/Curvy,Average,Average,apple,0,NaN,100.5,NaN,83,87,54,48.5,62,67
+2,jersey,top,21.38888889,large,10,male,22,1.72,77,26.02758248,Round/Curvy,Average,Average,apple,0,NaN,100.5,NaN,83,87,54,48.5,62,67
+1,baselayer,top,21.38888889,fit,13,male,23,1.9,85,23.54570637,Flat,Average,Average,hourglass,0,NaN,90,NaN,79,97,63,48,59,74
+2,jersey,top,21.38888889,small,13,male,23,1.9,85,23.54570637,Flat,Average,Average,hourglass,0,NaN,90,NaN,79,97,63,48,59,74
+3,bib tights,bottom,21.38888889,small,14,female,24,1.77,83,26.49302563,Average,Wider,Large,hourglass,75,g,99,89,84,98,56,48,65.5,70.5
+1,baselayer,top,21.38888889,large,14,female,24,1.77,83,26.49302563,Average,Wider,Large,hourglass,75,g,99,89,84,98,56,48,65.5,70.5
+2,jersey,top,21.38888889,fit,14,female,24,1.77,83,26.49302563,Average,Wider,Large,hourglass,75,g,99,89,84,98,56,48,65.5,70.5
+3,bib tights,bottom,21.38888889,small,16,male,23,1.75,75,24.48979592,Average,Average,Large,athletic,0,NaN,106,NaN,81,89,60,48.5,60,65
+1,baselayer,top,21.38888889,large,16,male,23,1.75,75,24.48979592,Average,Average,Large,athletic,0,NaN,106,NaN,81,89,60,48.5,60,65
+2,jersey,top,21.38888889,large,16,male,23,1.75,75,24.48979592,Average,Average,Large,athletic,0,NaN,106,NaN,81,89,60,48.5,60,65
+3,bib tights,bottom,25.27777778,fit,2,male,24,1.78,72.5,22.88221184,Average,Average,Large,striaght & narrow,0,NaN,100,NaN,70,84,58,49,55,74
+3,bib tights,bottom,25.27777778,small,3,male,24,1.83,85,25.38146854,flat,Average,Average,hourglass,0,NaN,104,NaN,86,89,59,52,63,72.5
+1,baselayer,top,25.27777778,large,3,male,24,1.83,85,25.38146854,flat,Average,Average,hourglass,0,NaN,104,NaN,86,89,59,52,63,72.5
+2,jersey,top,25.27777778,fit,3,male,24,1.83,85,25.38146854,flat,Average,Average,hourglass,0,NaN,104,NaN,86,89,59,52,63,72.5
+3,bib tights,bottom,25.27777778,small,4,male,24,1.89,81,22.67573696,average,average,average,striaght & narrow,0,NaN,94.50,NaN,83,88,57,46.5,64,73
+3,bib tights,bottom,25.27777778,fit,5,male,24,1.8,75,23.14814815,flat,narrow,Large,athletic,0,NaN,107,NaN,78,81.5,54,49,59,85
+1,baselayer,top,25.27777778,large,5,male,24,1.8,75,23.14814815,flat,narrow,Large,athletic,0,NaN,107,NaN,78,81.5,54,49,59,85
+2,jersey,top,25.27777778,fit,5,male,24,1.8,75,23.14814815,flat,narrow,Large,athletic,0,NaN,107,NaN,78,81.5,54,49,59,85
+3,bib tights,bottom,25.27777778,fit,6,male,25,1.8,80,24.69135802,average,wider,Large,hourglass,0,NaN,105,NaN,86,85,55,51,62,75
+1,baselayer,top,25.27777778,large,6,male,25,1.8,80,24.69135802,average,wider,Large,hourglass,0,NaN,105,NaN,86,85,55,51,62,75
+3,bib tights,bottom,25.27777778,large,10,male,22,1.72,77,26.02758248,Round/Curvy,Average,Average,apple,0,NaN,100.5,NaN,83,87,54,48.5,62,67
+3,bib tights,bottom,25.27777778,small,13,male,23,1.9,85,23.54570637,Flat,Average,Average,hourglass,0,NaN,90,NaN,79,97,63,48,59,74
+1,baselayer,top,25.27777778,large,13,male,23,1.9,85,23.54570637,Flat,Average,Average,hourglass,0,NaN,90,NaN,79,97,63,48,59,74
+2,jersey,top,25.27777778,fit,13,male,23,1.9,85,23.54570637,Flat,Average,Average,hourglass,0,NaN,90,NaN,79,97,63,48,59,74
+3,bib tights,bottom,25.27777778,fit,14,female,24,1.77,83,26.49302563,Average,Wider,Large,hourglass,75,g,99,89,84,98,56,48,65.5,70.5
+2,jersey,top,25.27777778,large,14,female,24,1.77,83,26.49302563,Average,Wider,Large,hourglass,75,g,99,89,84,98,56,48,65.5,70.5
+3,bib tights,bottom,25.27777778,fit,16,male,23,1.75,75,24.48979592,Average,Average,Large,athletic,0,NaN,106,NaN,81,89,60,48.5,60,65
+3,bib tights,bottom,29.16666667,large,2,male,24,1.78,72.5,22.88221184,Average,Average,Large,striaght & narrow,0,NaN,100,NaN,70,84,58,49,55,74
+3,bib tights,bottom,29.16666667,fit,3,male,24,1.83,85,25.38146854,flat,Average,Average,hourglass,0,NaN,104,NaN,86,89,59,52,63,72.5
+2,jersey,top,29.16666667,large,3,male,24,1.83,85,25.38146854,flat,Average,Average,hourglass,0,NaN,104,NaN,86,89,59,52,63,72.5
+3,bib tights,bottom,29.16666667,fit,4,male,24,1.89,81,22.67573696,average,average,average,striaght & narrow,0,NaN,94.50,NaN,83,88,57,46.5,64,73
+3,bib tights,bottom,29.16666667,large,5,male,24,1.8,75,23.14814815,flat,narrow,Large,athletic,0,NaN,107,NaN,78,81.5,54,49,59,85
+2,jersey,top,29.16666667,large,5,male,24,1.8,75,23.14814815,flat,narrow,Large,athletic,0,NaN,107,NaN,78,81.5,54,49,59,85
+3,bib tights,bottom,29.16666667,large,6,male,25,1.8,80,24.69135802,average,wider,Large,hourglass,0,NaN,105,NaN,86,85,55,51,62,75
+3,bib tights,bottom,29.16666667,fit,13,male,23,1.9,85,23.54570637,Flat,Average,Average,hourglass,0,NaN,90,NaN,79,97,63,48,59,74
+2,jersey,top,29.16666667,large,13,male,23,1.9,85,23.54570637,Flat,Average,Average,hourglass,0,NaN,90,NaN,79,97,63,48,59,74
+3,bib tights,bottom,29.16666667,large,14,female,24,1.77,83,26.49302563,Average,Wider,Large,hourglass,75,g,99,89,84,98,56,48,65.5,70.5
+3,bib tights,bottom,29.16666667,large,16,male,23,1.75,75,24.48979592,Average,Average,Large,athletic,0,NaN,106,NaN,81,89,60,48.5,60,65
+3,bib tights,bottom,33.05555556,large,3,male,24,1.83,85,25.38146854,flat,Average,Average,hourglass,0,NaN,104,NaN,86,89,59,52,63,72.5
+3,bib tights,bottom,33.05555556,large,4,male,24,1.89,81,22.67573696,average,average,average,striaght & narrow,0,NaN,94.50,NaN,83,88,57,46.5,64,73
+3,bib tights,bottom,33.05555556,large,13,male,23,1.9,85,23.54570637,Flat,Average,Average,hourglass,0,NaN,90,NaN,79,97,63,48,59,74

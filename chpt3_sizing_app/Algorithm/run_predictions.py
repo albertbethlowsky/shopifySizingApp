@@ -27,30 +27,44 @@ def run_test(name, X_test, y_test, X_train, y_train):
    
     filename = 'results/' + name + '.csv'
     #Column names: 
-    l = ['name', 'subname', 'accuracy', 'rmse', 'mae', 'crossval_accuracy', 'crossval_accuracy_stnd_dev']
+    l = ['name', 'subname', 'accuracy', 'rmse', 'mae', 'crossval_accuracy', 'crossval_accuracy_stnd_dev', 'timetotrain(fitting)']
     append_list_as_row_newfile(filename, l)
 
     #Support Vector Machine:
-    results=svm.getresults(X_test, y_test, X_train, y_train)
-    append_list_as_row(filename, results)
-    print('Support Vector Model - done')
+    
+    k='N/A'
+    results=svm.getresults(k, X_test, y_test, X_train, y_train)
+    append_list_as_row(filename, results[0])
+    report_header = ['Fit', 'Precision', 'Recall', 'f1-score', 'support']
+    append_list_as_row(filename, report_header)
+    results[1].to_csv(filename, mode='a', header=False)
+    print('Support Vector Model - done: ', k)
 
     #Decision Tree Classifier:
     results=dtc.getresults(X_test, y_test, X_train, y_train)
-    append_list_as_row(filename, results)
+    append_list_as_row(filename, results[0])
+    report_header = ['Fit', 'Precision', 'Recall', 'f1-score', 'support']
+    append_list_as_row(filename, report_header)
+    results[1].to_csv(filename, mode='a', header=False)
     print('Decision Tree Classifier - done')
 
     #K-Nearest Neighbor:
     for k in range(1,20): #cross validation
         if (k % 2) != 0:  
             results=knn.getresults(k, X_test, y_test, X_train, y_train)
-            append_list_as_row(filename, results)
+            append_list_as_row(filename, results[0])
+            report_header = ['Fit', 'Precision', 'Recall', 'f1-score', 'support']
+            append_list_as_row(filename, report_header)
+            results[1].to_csv(filename, mode='a', header=False)
             print('is done - knn nr: ', k)
     print('K-Nearest Neighbors - done')
 
     #Naive Bayes Classifier:
     results=nbc.getresults(X_test, y_test, X_train, y_train)
-    append_list_as_row(filename, results)
+    append_list_as_row(filename, results[0])
+    report_header = ['Fit', 'Precision', 'Recall', 'f1-score', 'support']
+    append_list_as_row(filename, report_header)
+    results[1].to_csv(filename, mode='a', header=False)
     print('Naive Bayes Classifier - done')
     print('_______________________________')
     print('DONE! - see file: ', filename)
@@ -59,14 +73,16 @@ def run_test(name, X_test, y_test, X_train, y_train):
 
 #__________________________INPUT VARIABLES_________________________#
 #clean runway data:
-#import src.treat_RunWay as treat
-#treat.create_csv('C:/Users/Frederik/Desktop/shopifySizingApp/chpt3_sizing_app/Algorithm/Data/renttherunway_final_data.json', 'C:/Users/Frederik/Desktop/shopifySizingApp/chpt3_sizing_app/Algorithm/Data/clean_runway.csv')
+import src.treat_RunWay as treat
+#treat.create_csv('./Data/renttherunway_final_data.json', './Data/clean_runway.csv')
 #print('done cleaning')
+
 
 #_______________________TEST 1:________________________________
 #| Chpt3 on Runway Trained Model, both male and female, 100 % chpt3 test set. |
 
 filename = 'chpt3_on_runway_maleandfemale_testsize100prct'
+
 testsizerunway = 0.2
 testsizechpt3 = 1
 genders = [] #parse empty list if you want both male and female. Include gender to exclude that gender.

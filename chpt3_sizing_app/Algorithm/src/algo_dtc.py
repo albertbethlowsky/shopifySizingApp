@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import seaborn as sns
+from time import time
 from pylab import rcParams
 import json
 from sklearn.model_selection import train_test_split # splits the data, part is training and part is testing
@@ -28,24 +29,27 @@ from sklearn.model_selection import cross_val_score
 def getresults(X_test, y_test, X_train, y_train):
     #insert runway's var:
     maxdepth = 2
+    start = time()
     dtree_model = DecisionTreeClassifier(max_depth = maxdepth).fit(X_train, y_train)
+    time_dtc = time()-start #seconds
 
     #insert chpt3's var:
-    dtree_predictions = dtree_model.predict(X_test)
-
-    # creating a confusion matrix
-    #cm = confusion_matrix(y_test, dtree_predictions)
+    y_pred = dtree_model.predict(X_test)
 
     #print(cm)
     scores = cross_val_score(dtree_model, X_test, y_test, cv=5)
-    accuracy = accuracy_score(y_test, dtree_predictions)
-    rmse = mean_squared_error(y_test,dtree_predictions)
-    mae = mean_absolute_error(y_test,dtree_predictions)
+    accuracy = accuracy_score(y_test, y_pred)
+    rmse = mean_squared_error(y_test,y_pred)
+    mae = mean_absolute_error(y_test,y_pred)
     kscore = scores.mean()
     kscore_stnd_dev = scores.std()
     name = 'Decision Tree Classifier'
     s = 'max_depth= '+str(maxdepth)
-    return [name, s, accuracy, rmse, mae, kscore, kscore_stnd_dev]
+
+    print(confusion_matrix(y_test,y_pred))
+    report = classification_report(y_test, y_pred, output_dict=True)
+    df = pd.DataFrame(report).transpose()
+    return [[name, s, accuracy, rmse, mae, kscore, kscore_stnd_dev, time_dtc],df]
     # print(s)
 
 

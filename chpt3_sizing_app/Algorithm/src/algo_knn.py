@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import seaborn as sns
+from time import time
 from pylab import rcParams
 import json
 from sklearn.model_selection import train_test_split # splits the data, part is training and part is testing
@@ -37,11 +38,12 @@ def getresults(k, X_test, y_test, X_train, y_train):
    
     #N_neighbors here is 'K' 
     #p is the power parameter to define the metric used, which 'Euclidean' in our case
+    start = time()
     classifier.fit(X_train, y_train)
+    time_knn = time()-start #seconds
 
     #predict the test set results
     y_pred = classifier.predict(X_test)
-    
 
     #evaluate model
     #cm = confusion_matrix(y_test, y_pred)
@@ -56,7 +58,10 @@ def getresults(k, X_test, y_test, X_train, y_train):
     kscore_stnd_dev = scores.std()
     # print('Classification Report for KNN:')
     # print(classification_report(y_test, y_pred, zero_division=1))
+    print(confusion_matrix(y_test,y_pred))
+    report = classification_report(y_test, y_pred, output_dict=True)
+    df = pd.DataFrame(report).transpose()
 
     name = 'K-Nearest Neighbor'
 
-    return [name, s, accuracy, rmse, mae, kscore, kscore_stnd_dev]
+    return [[name, s, accuracy, rmse, mae, kscore, kscore_stnd_dev, time_knn],df]
