@@ -46,11 +46,12 @@ def getresults(X_test, y_test, X_train, y_train):
     kscore = scores.mean()
     kscore_stnd_dev = scores.std()
    
-    print(confusion_matrix(y_test,y_pred))
+    cm = pd.DataFrame(confusion_matrix(y_test,y_pred)).transpose()
+    cmn = pd.DataFrame(confusion_matrix(y_test,y_pred, normalize='true')).transpose()
     report = classification_report(y_test, y_pred, output_dict=True)
     df = pd.DataFrame(report).transpose()
 
     name = 'Naive Bayes Classifier' 
 
-    return [[name, 'N/A', accuracy, rmse, mae, kscore, kscore_stnd_dev, time_nbc],df]
+    return [[name, 'N/A', accuracy, rmse, mae, kscore, kscore_stnd_dev, time_nbc],df, cm, cmn]
 

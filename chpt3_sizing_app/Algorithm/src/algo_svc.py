@@ -24,14 +24,13 @@ from sklearn.metrics import average_precision_score
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix 
 from sklearn.metrics import f1_score
-from sklearn.svm import LinearSVC
 from sklearn.svm import SVC
 from sklearn.model_selection import GridSearchCV
 from sklearn.model_selection import cross_val_score
 from sklearn.preprocessing import StandardScaler
 
 
-def getresults(scheme, X_test, y_test, X_train, y_train):
+def getresults(dfs, X_test, y_test, X_train, y_train):
     #params_grid = [{'C': [1, 10, 100, 1000],'multi_class': ['crammer_singer']}]
     #high gamma means more curvature
     #low gamma means less curvature
@@ -40,7 +39,7 @@ def getresults(scheme, X_test, y_test, X_train, y_train):
     #
     # Performing CV to tune parameters for best SVM fit 
     #svm_model = GridSearchCV(LinearSVC(), params_grid)
-    svm_model = LinearSVC(multi_class=scheme)
+    svm_model = SVC(kernel='linear', decision_function_shape=dfs)
     start = time()
     svm_model.fit(X_train, y_train)
     time_libsvm = time()-start #seconds
@@ -72,7 +71,6 @@ def getresults(scheme, X_test, y_test, X_train, y_train):
     df = pd.DataFrame(report).transpose()
 
     
-
     
     #print("Training set score for SVM: %f" % final_model.score(X_train, y_train))
     #print("Testing  set score for SVM: %f" % final_model.score(X_test, y_test ))
@@ -88,9 +86,9 @@ def getresults(scheme, X_test, y_test, X_train, y_train):
     #cm = confusion_matrix(y_test, y_pred)
     #print(cm)
     
-    name = 'Support Vector Machine (LinearSVC)'
-    schemename = 'scheme: ' + scheme
-    return [[name,schemename, accuracy, rmse, mae, scores, kscore_stnd_dev, time_libsvm],df, cm, cmn]
+    name = 'Support Vector Machine (SVC)'
+    dfsname = 'Decision Function Shape: ' + dfs
+    return [[name,dfsname, accuracy, rmse, mae, scores, kscore_stnd_dev, time_libsvm],df, cm, cmn]
 
 
 

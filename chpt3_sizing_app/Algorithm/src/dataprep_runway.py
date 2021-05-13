@@ -25,17 +25,6 @@ from sklearn.metrics import classification_report
 from sklearn import preprocessing
 le = preprocessing.LabelEncoder()
 
-def plot_correlation(data):
-    '''
-    plot correlation's matrix to explore dependency between features 
-    '''
-    # init figure size
-    #rcParams['figure.figsize']=15,20
-    fig = plt.figure()
-    sns.heatmap(data.corr(), annot=True, fmt=".2f")
-    plt.show()
-    fig.savefig('corrRunway.png')
-
 def runwayvals(testsize):
     dataset = pd.read_csv('C:/Users/Frederik/Desktop/shopifySizingApp/chpt3_sizing_app/Algorithm/Data/clean_runway.csv')
     
@@ -60,7 +49,7 @@ def runwayvals(testsize):
     dataset.bust_size_cat           = bust_size_cat_label
 
     #get list of unique values
-    dataset = dataset[['fit','product_size', 'bust_size_num_eu', 'bust_size_cat', 'height_meters', 'weight_kg', 'product_category', 'age', 'body_type']].copy()
+    dataset = dataset[['fit', 'product_size', 'bust_size_num_eu', 'bust_size_cat', 'height_meters', 'weight_kg', 'product_category', 'age', 'body_type']].copy()
 
     #plot_correlation(dataset)
     X = dataset.iloc[:,1:8] 
@@ -76,13 +65,22 @@ def runwayvals(testsize):
     
     # print(X)
     # print(y)
+    if(testsize<0.50):
+        X_train, X_test, y_train, y_test = train_test_split(X,y,random_state=0, test_size=testsize)
 
-    X_train, X_test, y_train, y_test = train_test_split(X,y,random_state=0, test_size=testsize)
+        #Rule of thumb: any algorithm that computes distance or assumes normality, scale your features!
+        #feature sacling
+        sc_X = StandardScaler()
+        X_train=sc_X.fit_transform(X_train)
+        X_test=sc_X.transform(X_test)
+        return [X_train, X_test, y_train, y_test]
+    else:
+        X_train, X_test, y_train, y_test = train_test_split(X,y,random_state=0, test_size=testsize)
 
-    #Rule of thumb: any algorithm that computes distance or assumes normality, scale your features!
-    #feature sacling
-    sc_X = StandardScaler()
-    X_train=sc_X.fit_transform(X_train)
-    X_test=sc_X.transform(X_test)
+        #Rule of thumb: any algorithm that computes distance or assumes normality, scale your features!
+        #feature sacling
+        sc_X = StandardScaler()
+        X_train=sc_X.fit_transform(X)
+        return [X_train, X_test, y, y_test]
 
-    return [X_train, X_test, y_train, y_test]
+    

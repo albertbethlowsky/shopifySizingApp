@@ -26,9 +26,8 @@ from sklearn.metrics import classification_report
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import cross_val_score
 
-def getresults(X_test, y_test, X_train, y_train):
+def getresults(maxdepth, X_test, y_test, X_train, y_train):
     #insert runway's var:
-    maxdepth = 2
     start = time()
     dtree_model = DecisionTreeClassifier(max_depth = maxdepth).fit(X_train, y_train)
     time_dtc = time()-start #seconds
@@ -45,11 +44,12 @@ def getresults(X_test, y_test, X_train, y_train):
     kscore_stnd_dev = scores.std()
     name = 'Decision Tree Classifier'
     s = 'max_depth= '+str(maxdepth)
-
-    print(confusion_matrix(y_test,y_pred))
+    cm = pd.DataFrame(confusion_matrix(y_test,y_pred)).transpose()
+    cmn = pd.DataFrame(confusion_matrix(y_test,y_pred, normalize='true')).transpose()
+    
     report = classification_report(y_test, y_pred, output_dict=True)
     df = pd.DataFrame(report).transpose()
-    return [[name, s, accuracy, rmse, mae, kscore, kscore_stnd_dev, time_dtc],df]
+    return [[name, s, accuracy, rmse, mae, kscore, kscore_stnd_dev, time_dtc],df, cm, cmn]
     # print(s)
 
 

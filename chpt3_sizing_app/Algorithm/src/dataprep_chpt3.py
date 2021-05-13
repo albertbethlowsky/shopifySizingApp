@@ -26,17 +26,6 @@ from sklearn import preprocessing
 le = preprocessing.LabelEncoder()
 
 
-def plot_correlation(data):
-    '''
-    plot correlation's matrix to explore dependency between features 
-    '''
-    # init figure size
-    #rcParams['figure.figsize']=15,20
-    fig = plt.figure()
-    sns.heatmap(data.corr(), annot=True, fmt=".2f")
-    plt.show()
-    fig.savefig('corrChpt3.png')
-
 def chpt3vals(gender, testsize):
     #chpt3:
     dataset = pd.read_csv('C:/Users/Frederik/Desktop/shopifySizingApp/chpt3_sizing_app/Algorithm/Data/clean_chpt3.csv')
@@ -66,7 +55,7 @@ def chpt3vals(gender, testsize):
     dataset.bust_size_cat           = bust_size_cat_label
     
     #get list of unique values
-    dataset = dataset[['fit','product_size', 'bust_size_num_eu', 'bust_size_cat', 'height_meters', 'weight_kg', 'product_category', 'age', 'body_type']].copy()
+    dataset = dataset[['fit', 'product_size', 'bust_size_num_eu', 'bust_size_cat', 'height_meters', 'weight_kg', 'product_category', 'age', 'body_type']].copy()
     dataset.product_size = dataset.product_size.astype(np.int64)
     dataset.age = dataset.age.astype(np.int64)
     
