@@ -28,17 +28,20 @@ le = preprocessing.LabelEncoder()
 
 def chpt3vals(gender, testsize):
     #chpt3:
-    dataset = pd.read_csv('C:/Users/Frederik/Desktop/shopifySizingApp/chpt3_sizing_app/Algorithm/Data/clean_chpt3.csv')
+    dataset = pd.read_csv('./Data/clean_chpt3.csv')
     dataset.age = dataset.age.astype(np.float64)
     dataset.bmi = dataset.bmi.astype(np.float64)
     dataset = dataset[~dataset['gender'].isin(gender)] #isolate male and female
-
+        
+        
     #label the data, such that strings get an int representation
     le.fit(dataset.fit)
     fit_label = le.transform(dataset.fit)
     #large=1
     #fit=0
     #small=2
+
+    
 
     le.fit(dataset.body_type)
     body_type_label = le.transform(dataset.body_type)
@@ -64,6 +67,7 @@ def chpt3vals(gender, testsize):
     #plot_correlation(dataset)
     X = dataset.iloc[:,1:8] 
     y = dataset.iloc[:,0] #fit
+
     # print('this is chpt3 x')
     # print(X.head(20))
     # print(X.describe())
@@ -76,25 +80,24 @@ def chpt3vals(gender, testsize):
     # print(y)
     if(testsize<0.50):
         X_train, X_test, y_train, y_test = train_test_split(X,y,random_state=0, test_size=testsize)
-        
-        print(len(y_test))
         #Rule of thumb: any algorithm that computes distance or assumes normality, scale your features!
         #feature sacling
         sc_X = StandardScaler()
-        X_train=sc_X.fit_transform(X_train)
-        X_test=sc_X.transform(X_test)
 
+        X_train=sc_X.fit_transform(X_train)
+
+        X_test=sc_X.transform(X_test)
         return [X_train, X_test, y_train, y_test]
     else:
-        X_train, X_test, y_train, y_test = train_test_split(X,y,random_state=0, test_size=testsize)
         #Rule of thumb: any algorithm that computes distance or assumes normality, scale your features!
         #feature sacling
         sc_X = StandardScaler()
-        X_train=sc_X.fit_transform(X_train)
-
-        #X_test=sc_X.transform(X_test)
-
+       
+        X_train=sc_X.fit_transform(X)
+       
         #using all of chpt3 
-        X_test=sc_X.fit_transform(X)
+        X_test=sc_X.transform(X)
+
         y_test=y.sample(frac=1) #shuffle y
+        y_train=y.sample(frac=1)
         return [X_train, X_test, y_train, y_test]

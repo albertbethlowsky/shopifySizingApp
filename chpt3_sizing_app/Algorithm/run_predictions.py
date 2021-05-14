@@ -4,6 +4,9 @@ import src.algo_knn as knn
 import src.algo_dtc as dtc
 import src.algo_svm as svm
 import src.algo_svc as svc
+import seaborn as sns
+import matplotlib.pyplot as plt
+from scipy import stats
 import numpy as np
 
 from csv import writer
@@ -32,29 +35,38 @@ def run_warmup(X_test, y_test, X_train, y_train):
 
 #_______________________Running the algorithm:________________________________
 def run_test(name, X_test, y_test, X_train, y_train):
+    run_warmup(X_test_chpt3, y_test_chpt3, X_train_runway, y_train_runway)
+    
     header_confusionmatrix = ['First Row', 'Second Row', 'Third Row']
     header_report = ['Fit', 'Precision', 'Recall', 'f1-score', 'support']
-    filename = 'results/' + name + '.csv'
-
+    filenameCSV = 'results/' + name + '.csv'
+    
     #Column names: 
     l = ['name', 'subname', 'accuracy', 'rmse', 'mae', 'crossval_accuracy', 'crossval_accuracy_stnd_dev', 'timetotrain(fitting)']
-    append_list_as_row_newfile(filename, l)
+    append_list_as_row_newfile(filenameCSV, l)
     #___________________________________________________
      #SUPPORT VECTOR MACHINE:
     functionshapes = ['ovo', 'ovr']
     for dfs in functionshapes:
         results=svc.getresults(dfs, X_test, y_test, X_train, y_train)
         #results:
-        append_list_as_row(filename, results[0])
+        append_list_as_row(filenameCSV, results[0])
         #Classfication Report:
-        append_list_as_row(filename, header_report)
-        results[1].to_csv(filename, mode='a', header=False)
+        append_list_as_row(filenameCSV, header_report)
+        results[1].to_csv(filenameCSV, mode='a', header=False)
         #CM:
-        append_list_as_row(filename, header_confusionmatrix)
-        results[2].to_csv(filename, mode='a', header=False)
+        append_list_as_row(filenameCSV, header_confusionmatrix)
+        results[2].to_csv(filenameCSV, mode='a', header=False)
+        #CMN Plotting:
+        fig = plt.figure()
+         df = results[3].pivot('Actual', 'Predicted') 
+        sns.heatmap(df, annot=True, 
+        fmt='.2%', cmap='Blues')
+        s = './plotting/CM/SVM/cmn_' + dfs +'_'+name+'.png'
+        fig.savefig(s)
         #CMN:
-        append_list_as_row(filename, header_confusionmatrix)
-        results[3].to_csv(filename, mode='a', header=False)
+        append_list_as_row(filenameCSV, header_confusionmatrix)
+        results[3].to_csv(filenameCSV, mode='a', header=False)
 
     print('Support Vector Model (One vs One) - done: ')
     #___________________________________________________
@@ -63,16 +75,23 @@ def run_test(name, X_test, y_test, X_train, y_train):
     for scheme in schemes:
         results=svm.getresults(scheme, X_test, y_test, X_train, y_train)
         #results:
-        append_list_as_row(filename, results[0])
+        append_list_as_row(filenameCSV, results[0])
         #Classfication Report:
-        append_list_as_row(filename, header_report)
-        results[1].to_csv(filename, mode='a', header=False)
+        append_list_as_row(filenameCSV, header_report)
+        results[1].to_csv(filenameCSV, mode='a', header=False)
         #CM:
-        append_list_as_row(filename, header_confusionmatrix)
-        results[2].to_csv(filename, mode='a', header=False)
+        append_list_as_row(filenameCSV, header_confusionmatrix)
+        results[2].to_csv(filenameCSV, mode='a', header=False)
+        #CMN Plotting:
+        fig = plt.figure()
+        df = results[3].pivot('Actual', 'Predicted') 
+        sns.heatmap(df, annot=True, 
+        fmt='.2%', cmap='Blues')
+        s = './plotting/CM/SVM/cmn_' + scheme +'_'+name+'.png'
+        fig.savefig(s)
         #CMN:
-        append_list_as_row(filename, header_confusionmatrix)
-        results[3].to_csv(filename, mode='a', header=False)
+        append_list_as_row(filenameCSV, header_confusionmatrix)
+        results[3].to_csv(filenameCSV, mode='a', header=False)
 
     print('Support Vector Model (Crammer singer and OneVsRest) - done: ')
     #___________________________________________________
@@ -81,65 +100,89 @@ def run_test(name, X_test, y_test, X_train, y_train):
         if(depth%2)==0:
             #Results:
             results=dtc.getresults(depth, X_test, y_test, X_train, y_train)
-            append_list_as_row(filename, results[0])
+            append_list_as_row(filenameCSV, results[0])
             #Classfication Report:
-            append_list_as_row(filename, header_report)
-            results[1].to_csv(filename, mode='a', header=False)
+            append_list_as_row(filenameCSV, header_report)
+            results[1].to_csv(filenameCSV, mode='a', header=False)
             #CM:
-            append_list_as_row(filename, header_confusionmatrix)
-            results[2].to_csv(filename, mode='a', header=False)
+            append_list_as_row(filenameCSV, header_confusionmatrix)
+            results[2].to_csv(filenameCSV, mode='a', header=False)
+            #CMN Plotting:
+            fig = plt.figure()
+            df = results[3].pivot('Actual', 'Predicted') 
+            sns.heatmap(df, annot=True, 
+            fmt='.2%', cmap='Blues')
+            s = './plotting/CM/DTC/cmn_depth=' + str(depth) +'_'+name+'.png'
+            fig.savefig(s)
             #CMN:
-            append_list_as_row(filename, header_confusionmatrix)
-            results[3].to_csv(filename, mode='a', header=False)
+            append_list_as_row(filenameCSV, header_confusionmatrix)
+            results[3].to_csv(filenameCSV, mode='a', header=False)
     print('Decision Tree Classifier - done')
     #__________________________________________________
     #NAIVE BAYES CLASSIFIER:
-
-    #Results:
-    results=nbc.getresults(X_test, y_test, X_train, y_train)
-    append_list_as_row(filename, results[0])
-    #Classfication Report:
-    append_list_as_row(filename, header_report)
-    results[1].to_csv(filename, mode='a', header=False)
-    #CM:
-    append_list_as_row(filename, header_confusionmatrix)
-    results[2].to_csv(filename, mode='a', header=False)
-    #CMN:
-    append_list_as_row(filename, header_confusionmatrix)
-    results[3].to_csv(filename, mode='a', header=False)
+    algos = ['Gaussian']
+    for algo in algos:
+        #Results:
+        results=nbc.getresults(algo, X_test, y_test, X_train, y_train)
+        append_list_as_row(filenameCSV, results[0])
+        #Classfication Report:
+        append_list_as_row(filenameCSV, header_report)
+        results[1].to_csv(filenameCSV, mode='a', header=False)
+        #CM:
+        append_list_as_row(filenameCSV, header_confusionmatrix)
+        results[2].to_csv(filenameCSV, mode='a', header=False)
+        #CMN:
+        append_list_as_row(filenameCSV, header_confusionmatrix)
+        results[3].to_csv(filenameCSV, mode='a', header=False)
     print('Naive Bayes Classifier - done')
     #_________________________________________________
     #K-NEAREST NEIGHBOR:
-    if(len(X_test)<1000):
-        for k in range(1,20): #cross validation
-            if (k % 2) != 0:  
-                results=knn.getresults(k, X_test, y_test, X_train, y_train)
-                #results:
-                append_list_as_row(filename, results[0])
-                #Classfication Report:
-                append_list_as_row(filename, header_report)
-                results[1].to_csv(filename, mode='a', header=False)
-                #CM:
-                append_list_as_row(filename, header_confusionmatrix)
-                results[2].to_csv(filename, mode='a', header=False)
-                #CMN:
-                append_list_as_row(filename, header_confusionmatrix)
-                results[3].to_csv(filename, mode='a', header=False)
-    else:
-        for k in range(10,125):
-            if (k % 2) != 0:  
-                #results:
-                results=knn.getresults(k, X_test, y_test, X_train, y_train)
-                append_list_as_row(filename, results[0])
-                #Classfication Report:
-                append_list_as_row(filename, header_report)
-                results[1].to_csv(filename, mode='a', header=False)
-                #CM:
-                append_list_as_row(filename, header_confusionmatrix)
-                results[2].to_csv(filename, mode='a', header=False)
-                #CMN:
-                append_list_as_row(filename, header_confusionmatrix)
-                results[3].to_csv(filename, mode='a', header=False)
+    weights = ['uniform', 'distance']
+    for weight in weights:
+        if(len(X_test)<1000):
+            for k in range(1,11): #cross validation
+                if (k % 2) != 0:  
+                    results=knn.getresults(weight, k, X_test, y_test, X_train, y_train)
+                    #results:
+                    append_list_as_row(filenameCSV, results[0])
+                    #Classfication Report:
+                    append_list_as_row(filenameCSV, header_report)
+                    results[1].to_csv(filenameCSV, mode='a', header=False)
+                    #CM:
+                    append_list_as_row(filenameCSV, header_confusionmatrix)
+                    results[2].to_csv(filenameCSV, mode='a', header=False)
+                    #CMN Plotting:
+                    fig = plt.figure()
+                    df = results[3].pivot('Actual', 'Predicted') 
+                    sns.heatmap(df, annot=True, 
+                    fmt='.2%', cmap='Blues')
+                    s = './plotting/CM/KNN/cmn_W=' + weight + '_K=' + str(k) +'_'+name+'.png'
+                    fig.savefig(s)
+                    #CMN:
+                    append_list_as_row(filenameCSV, header_confusionmatrix)
+                    results[3].to_csv(filenameCSV, mode='a', header=False)
+        else:
+            for k in range(10,125):
+                if (k % 2) != 0:  
+                    #results:
+                    results=knn.getresults(weight, k, X_test, y_test, X_train, y_train)
+                    append_list_as_row(filenameCSV, results[0])
+                    #Classfication Report:
+                    append_list_as_row(filenameCSV, header_report)
+                    results[1].to_csv(filenameCSV, mode='a', header=False)
+                    #CM:
+                    append_list_as_row(filenameCSV, header_confusionmatrix)
+                    results[2].to_csv(filenameCSV, mode='a', header=False)
+                    #CMN Plotting:
+                    fig = plt.figure()
+                     df = results[3].pivot('Actual', 'Predicted') 
+                    sns.heatmap(df, annot=True, 
+                    fmt='.2%', cmap='Blues')
+                    s = './plotting/CM/KNN/cmn_W=' + weight + '_K=' + str(k) +'_'+name+'.png'
+                    fig.savefig(s)
+                    #CMN:
+                    append_list_as_row(filenameCSV, header_confusionmatrix)
+                    results[3].to_csv(filenameCSV, mode='a', header=False)
     print('K-Nearest Neighbors - done')
     print('_______________________________')
     print('DONE! - see file: ', filename)
@@ -152,35 +195,10 @@ import src.treat_RunWay as treat
 #treat.create_csv('./Data/renttherunway_final_data.json', './Data/clean_runway.csv')
 #print('done cleaning')
 
-#__________________________WARMUP_________________________#
-
-testsizerunway = 1
-testsizechpt3 = 1
-genders = [] #parse empty list if you want both male and female. Include gender to exclude that gender.
-
-#______DATA PREP START ________
-#chpt3:
-import src.dataprep_chpt3 as chpt3
-l = chpt3.chpt3vals(genders, testsizechpt3) 
-X_train_chpt3 = l[0]
-X_test_chpt3 = l[1]
-y_train_chpt3 = l[2]
-y_test_chpt3 = l[3]
-
-#runway:
-import src.dataprep_runway as runway
-l = runway.runwayvals(testsizerunway)
-X_train_runway = l[0]
-X_test_runway = l[1]
-y_train_runway = l[2]
-y_test_runway = l[3]
-#______DATA PREP END ________
-run_warmup(X_test_chpt3, y_test_chpt3, X_train_runway, y_train_runway)
-
 #_______________________TEST 1:________________________________
 #| Chpt3 on Runway Trained Model, both male and female, 100 % |
 
-filename = 'chpt3_on_runway_maleandfemale_testsize100prct'
+filename = 'Chpt3_Runway_M+F_100%'
 
 testsizerunway = 1
 testsizechpt3 = 1
@@ -203,14 +221,14 @@ X_test_runway = l[1]
 y_train_runway = l[2]
 y_test_runway = l[3]
 #______DATA PREP END ________
-
+ 
 run_test(filename, X_test_chpt3, y_test_chpt3, X_train_runway, y_train_runway)
 print('-----TEST 1 DONE (chpt3_on_runway_maleandfemale_testsize100prct)------')
 
 #_______________________TEST 2:________________________________
 #| Chpt3 on Runway Trained Model, only female, 100 % chpt3 test set. |
 
-filename = 'chpt3_on_runway_female_testsize100prct'
+filename = 'Chpt3_Runway_F_100%'
 testsizerunway = 1
 testsizechpt3 = 1
 genders = ['male'] #parse empty list if you want both male and female. Include gender to exclude that gender.
@@ -238,8 +256,7 @@ print('-----TEST 2 DONE (chpt3_on_runway_female_testsize100prct)------')
 
 #_______________________TEST 3:________________________________
 #| Runway on Runway Trained Model, 20 % runway test set. |
-
-filename = 'runway_on_runway_maleandfemale_testsize20prct'
+filename = 'Runway_M+F_20%'
 testsizerunway = 0.2
 
 #______DATA PREP START ________
@@ -257,8 +274,7 @@ print('-----TEST 3 DONE (runway_on_runway_maleandfemale_testsize20prct)------')
 
 #_______________________TEST 4:________________________________
 #| Chpt3 on Chpt3 Trained Model, male and female, 20 % chpt3 test set. |
-
-filename = 'chpt3_on_chpt3_maleandfemale_testsize20prct'
+filename = 'Chpt3_M+F_20%'
 testsizechpt3 = 0.2
 genders = [] #parse empty list if you want both male and female. Include gender to exclude that gender.
 
@@ -279,8 +295,7 @@ print('-----TEST 4 DONE (chpt3_on_chpt3_maleandfemale_testsize20prct)------')
 
 #_______________________TEST 5:________________________________
 #| Chpt3 on Chpt3 Trained Model, male and female, 20 % chpt3 test set. |
-
-filename = 'chpt3_on_chpt3_female_testsize20prct'
+filename = 'Chpt3_F_20%'
 testsizechpt3 = 0.2
 genders = ['male'] #parse empty list if you want both male and female. Include gender to exclude that gender.
 

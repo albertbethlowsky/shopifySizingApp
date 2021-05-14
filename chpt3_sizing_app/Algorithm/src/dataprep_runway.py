@@ -22,11 +22,12 @@ from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
 from sklearn.metrics import average_precision_score
 from sklearn.metrics import classification_report
+from sklearn.preprocessing import OrdinalEncoder
 from sklearn import preprocessing
 le = preprocessing.LabelEncoder()
 
 def runwayvals(testsize):
-    dataset = pd.read_csv('C:/Users/Frederik/Desktop/shopifySizingApp/chpt3_sizing_app/Algorithm/Data/clean_runway.csv')
+    dataset = pd.read_csv('./Data/clean_runway.csv')
     
 
     #label the data, such that strings get an int representation
@@ -54,7 +55,7 @@ def runwayvals(testsize):
     #plot_correlation(dataset)
     X = dataset.iloc[:,1:8] 
     y = dataset.iloc[:,0] #fit
-
+   
     # print('this is runway x')
     # print(X.head(20))
     # print(X.describe())
@@ -71,16 +72,23 @@ def runwayvals(testsize):
         #Rule of thumb: any algorithm that computes distance or assumes normality, scale your features!
         #feature sacling
         sc_X = StandardScaler()
+
         X_train=sc_X.fit_transform(X_train)
+
         X_test=sc_X.transform(X_test)
         return [X_train, X_test, y_train, y_test]
     else:
-        X_train, X_test, y_train, y_test = train_test_split(X,y,random_state=0, test_size=testsize)
-
         #Rule of thumb: any algorithm that computes distance or assumes normality, scale your features!
         #feature sacling
         sc_X = StandardScaler()
+        #sc_X = OrdinalEncoder()
+
         X_train=sc_X.fit_transform(X)
-        return [X_train, X_test, y, y_test]
+        #X_train=sc_X.fit(X)
+        #X_train=sc_X.transform(X_train)
+
+        X_test=sc_X.transform(X)
+        
+        return [X_train, X_test, y, y]
 
     

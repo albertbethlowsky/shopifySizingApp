@@ -24,12 +24,18 @@ from sklearn.metrics import recall_score
 from sklearn.metrics import average_precision_score
 from sklearn.metrics import classification_report
 from sklearn.naive_bayes import GaussianNB
+from sklearn.naive_bayes import CategoricalNB
 from sklearn.model_selection import cross_val_score
 
-def getresults(X_test, y_test, X_train, y_train):
-    start = time()
-    gnb = GaussianNB().fit(X_train, y_train) #train it with runway
-    time_nbc = time()-start #seconds
+def getresults(algo, X_test, y_test, X_train, y_train):
+    if(algo=='Gaussian'):
+        start = time()
+        gnb = GaussianNB().fit(X_train, y_train) #train it with runway
+        time_nbc = time()-start #seconds
+    else:
+        start = time()
+        gnb = CategoricalNB().fit(X_train, y_train) #train it with runway
+        time_nbc = time()-start #seconds
 
     y_pred = gnb.predict(X_test) #predict with chpt3
     
@@ -51,7 +57,7 @@ def getresults(X_test, y_test, X_train, y_train):
     report = classification_report(y_test, y_pred, output_dict=True)
     df = pd.DataFrame(report).transpose()
 
-    name = 'Naive Bayes Classifier' 
+    name = algo + ' Naive Bayes Classifier' 
 
-    return [[name, 'N/A', accuracy, rmse, mae, kscore, kscore_stnd_dev, time_nbc],df, cm, cmn]
+    return [[name, algo, accuracy, rmse, mae, kscore, kscore_stnd_dev, time_nbc],df, cm, cmn]
 

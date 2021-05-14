@@ -72,8 +72,6 @@ def getresults(scheme, X_test, y_test, X_train, y_train):
     df = pd.DataFrame(report).transpose()
 
     
-
-    
     #print("Training set score for SVM: %f" % final_model.score(X_train, y_train))
     #print("Testing  set score for SVM: %f" % final_model.score(X_test, y_test ))
    
@@ -90,7 +88,7 @@ def getresults(scheme, X_test, y_test, X_train, y_train):
     
     name = 'Support Vector Machine (LinearSVC)'
     schemename = 'scheme: ' + scheme
-    return [[name,schemename, accuracy, rmse, mae, scores, kscore_stnd_dev, time_libsvm],df, cm, cmn]
+    return [[name,schemename, accuracy, rmse, mae, kscore, kscore_stnd_dev, time_libsvm],df, cm, cmn]
 
 
 

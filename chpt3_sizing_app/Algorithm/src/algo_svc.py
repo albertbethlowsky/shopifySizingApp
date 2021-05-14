@@ -88,7 +88,7 @@ def getresults(dfs, X_test, y_test, X_train, y_train):
     
     name = 'Support Vector Machine (SVC)'
     dfsname = 'Decision Function Shape: ' + dfs
-    return [[name,dfsname, accuracy, rmse, mae, scores, kscore_stnd_dev, time_libsvm],df, cm, cmn]
+    return [[name,dfsname, accuracy, rmse, mae, kscore, kscore_stnd_dev, time_libsvm],df, cm, cmn]
 
 
 

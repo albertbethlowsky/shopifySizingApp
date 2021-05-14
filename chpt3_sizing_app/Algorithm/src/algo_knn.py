@@ -26,7 +26,7 @@ from sklearn.metrics import classification_report
 from sklearn.model_selection import KFold
 from sklearn.model_selection import cross_val_score
 
-def getresults(k, X_test, y_test, X_train, y_train):
+def getresults(weight, k, X_test, y_test, X_train, y_train):
     #Then define the model using KNeighborsClassifier and fit the train data in the model:
     #Define the model: Init K-NN
 
@@ -34,7 +34,7 @@ def getresults(k, X_test, y_test, X_train, y_train):
 
     if (k % 2) == 0:  
         k = k-1 #if k is even, subtract one. 
-    classifier = KNeighborsClassifier(n_neighbors=k, p=2, metric='euclidean') #euclidean, finds the 
+    classifier = KNeighborsClassifier(n_neighbors=k, p=2, metric='euclidean', weights=weight) #euclidean, finds the 
    
     #N_neighbors here is 'K' 
     #p is the power parameter to define the metric used, which 'Euclidean' in our case
@@ -48,7 +48,7 @@ def getresults(k, X_test, y_test, X_train, y_train):
     #evaluate model
     #cm = confusion_matrix(y_test, y_pred)
 
-    s = 'k= '+str(k)
+    s = 'k= '+str(k) + ' weight=' + weight
 
     scores = cross_val_score(classifier, X_test, y_test, cv=5)
     accuracy = accuracy_score(y_test, y_pred)
