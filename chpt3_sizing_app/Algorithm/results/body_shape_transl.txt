@@ -1,9 +1,9 @@
 	hourglass
-		(tummy: flat, hips: average, breast: average)
-		(tummy: flat, hips: larger, breast: average)
-		(tummy: flat, hips: average, breast: larger)
-		(tummy: flat, hips: wider, breast: larger)
-		(tummy: average, hips: wider, breast: larger)
+	(tummy: flat, hips: average, breast: average)
+	(tummy: flat, hips: larger, breast: average)
+	(tummy: flat, hips: average, breast: larger)
+	(tummy: flat, hips: wider, breast: larger)
+	(tummy: average, hips: wider, breast: larger)
 
 	petite
         (tummy: flat, hips: narrow, breast: small)
@@ -15,7 +15,7 @@
         (tummy: average, hips: average, breast: larger)
         (tummy: average, hips: narrow, breast: larger) (men)
 
-    athletic
+        athletic
         (tummy: flat, hips: average, breast: larger)
 
 	Full bust

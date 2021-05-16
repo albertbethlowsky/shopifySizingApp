@@ -51,6 +51,8 @@ def runwayvals(testsize):
 
     #get list of unique values
     dataset = dataset[['fit', 'product_size', 'bust_size_num_eu', 'bust_size_cat', 'height_meters', 'weight_kg', 'product_category', 'age', 'body_type']].copy()
+    dataset.info()
+
 
     #plot_correlation(dataset)
     X = dataset.iloc[:,1:8] 
