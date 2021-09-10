@@ -12,14 +12,14 @@ from matplotlib import style # setting styles for plots
 
 
 #PLOTTING RUNWAY:
-dataset = pd.read_csv('C:/Users/Frederik/Desktop/shopifySizingApp/chpt3_sizing_app/Algorithm/Data/clean_runway.csv')
-filename = '_runway.png'
-dataset = dataset[['fit','product_size', 'bust_size_num_eu', 'bust_size_cat', 'height_meters', 'weight_kg', 'product_category', 'age', 'body_type','bmi']].copy()
+# dataset = pd.read_csv('C:/Users/Frederik/Desktop/shopifySizingApp/chpt3_sizing_app/Algorithm/Data/clean_runway.csv')
+# filename = '_runway.png'
+# dataset = dataset[['fit','product_size', 'bust_size_num_eu', 'bust_size_cat', 'height_meters', 'weight_kg', 'product_category', 'age', 'body_type','bmi']].copy()
 
 #PLOTTING CHPT3
-#dataset = pd.read_csv('C:/Users/Frederik/Desktop/shopifySizingApp/chpt3_sizing_app/Algorithm/Data/clean_chpt3.csv')
-#filename = '_chpt3.png'
-#dataset = dataset[['fit','product_size', 'bust_size_num_eu', 'bust_size_cat', 'height_meters', 'weight_kg', 'product_category', 'age', 'body_type', 'bmi','gender']].copy()
+dataset = pd.read_csv('C:/Users/Frederik/Desktop/shopifySizingApp/chpt3_sizing_app/Algorithm/Data/clean_chpt3.csv')
+filename = '_chpt3.png'
+dataset = dataset[['fit','product_size', 'bust_size_num_eu', 'bust_size_cat', 'height_meters', 'weight_kg', 'product_category', 'age', 'body_type', 'bmi','gender']].copy()
 
 le.fit(dataset.fit)
 fit_label = le.transform(dataset.fit)

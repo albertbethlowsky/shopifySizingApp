@@ -75,9 +75,9 @@ def runwayvals(testsize):
         #feature sacling
         sc_X = StandardScaler()
 
-        X_train=sc_X.fit_transform(X_train)
+        #X_train=sc_X.fit_transform(X_train)
 
-        X_test=sc_X.transform(X_test)
+        #X_test=sc_X.transform(X_test)
         return [X_train, X_test, y_train, y_test]
     else:
         #Rule of thumb: any algorithm that computes distance or assumes normality, scale your features!
@@ -88,9 +88,9 @@ def runwayvals(testsize):
         X_train=sc_X.fit_transform(X)
         #X_train=sc_X.fit(X)
         #X_train=sc_X.transform(X_train)
-
+        
         X_test=sc_X.transform(X)
         
-        return [X_train, X_test, y, y]
+        
+        return [X, X, y, y]
 
-    

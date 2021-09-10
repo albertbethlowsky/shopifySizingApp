@@ -41,6 +41,8 @@ def getresults(scheme, X_test, y_test, X_train, y_train):
     # Performing CV to tune parameters for best SVM fit 
     #svm_model = GridSearchCV(LinearSVC(), params_grid)
     svm_model = LinearSVC(multi_class=scheme)
+    scores = cross_val_score(svm_model, X_train, y_train, cv=5)
+
     start = time()
     svm_model.fit(X_train, y_train)
     time_libsvm = time()-start #seconds
@@ -54,7 +56,7 @@ def getresults(scheme, X_test, y_test, X_train, y_train):
     #https://stackoverflow.com/questions/40077432/why-is-scikit-learn-svm-svc-extremely-slow
     #normalize the data, can improve the speed:
     #https://stackoverflow.com/questions/52670012/convergencewarning-liblinear-failed-to-converge-increase-the-number-of-iterati
-    scores = cross_val_score(svm_model, X_test, y_test, cv=5)
+    
     #svm_model.fit(X_train, y_train)
 
     #final_model = svm_model.best_estimator_

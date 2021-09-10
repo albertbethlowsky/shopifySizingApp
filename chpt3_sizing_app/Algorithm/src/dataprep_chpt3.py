@@ -33,7 +33,6 @@ def chpt3vals(gender, testsize):
     dataset.bmi = dataset.bmi.astype(np.float64)
     dataset = dataset[~dataset['gender'].isin(gender)] #isolate male and female
         
-        
     #label the data, such that strings get an int representation
     le.fit(dataset.fit)
     fit_label = le.transform(dataset.fit)
@@ -101,3 +100,4 @@ def chpt3vals(gender, testsize):
         y_test=y.sample(frac=1) #shuffle y
         y_train=y.sample(frac=1)
         return [X_train, X_test, y_train, y_test]
+

@@ -27,11 +27,11 @@ def append_list_as_row_newfile(file_name, list_of_elem):
         csv_writer.writerow(list_of_elem)
 
 #_____________________WARMING THE MACHINE UP:____________________________________
-def run_warmup(X_test, y_test, X_train, y_train):
-    functionshapes = ['ovo', 'ovr']
-    for dfs in functionshapes:
-        svc.getresults(dfs, X_test, y_test, X_train, y_train)
-    print('WARMING UP IS DONE!')
+# def run_warmup(X_test, y_test, X_train, y_train):
+#     functionshapes = ['ovo', 'ovr']
+#     for dfs in functionshapes:
+#         svc.getresults(dfs, X_test, y_test, X_train, y_train)
+#     print('WARMING UP IS DONE!')
 
 
 #_____________________PLOTTING:____________________________________
@@ -57,7 +57,7 @@ def cmPlot(algo, df, par1, par2, par3):
 
 #_______________________Running the algorithm:________________________________
 def run_test(name, X_test, y_test, X_train, y_train):
-    run_warmup(X_test, y_test, X_train, y_train)
+    #run_warmup(X_test, y_test, X_train, y_train)
     header_confusionmatrix = ['First Row', 'Second Row', 'Third Row']
     header_report = ['Fit', 'Precision', 'Recall', 'f1-score', 'support']
     filenameCSV = 'results/' + name + '.csv'
@@ -205,91 +205,140 @@ def run_test(name, X_test, y_test, X_train, y_train):
 #treat.create_csv('./Data/renttherunway_final_data.json', './Data/clean_runway.csv')
 #print('done cleaning')
 
-#_______________________TEST 1:________________________________
-#| Runway on Runway Trained Model, 20 % runway test set. |
-filename = 'Runway_M+F_20%'
-testsizerunway = 0.2
+#  #_______________________TEST 1:________________________________
+# #| Runway on Runway Trained Model, 20 % runway test set. |
+# filename = 'Runway_M+F_20%'
+# testsizerunway = 0.2
 
-#______DATA PREP START ________
-#runway:
-import src.dataprep_runway as runway
-l = runway.runwayvals(testsizerunway)
-X_train_runway = l[0]
-X_test_runway = l[1]
-y_train_runway = l[2]
-y_test_runway = l[3]
-#______DATA PREP END ________
+# #______DATA PREP START ________
+# #runway:
+# import src.dataprep_runway as runway
+# l = runway.runwayvals(testsizerunway)
+# X_train_runway = l[0]
+# X_test_runway = l[1]
+# y_train_runway = l[2]
+# y_test_runway = l[3]
+# #______DATA PREP END ________
 
-run_test(filename, X_test_runway, y_test_runway, X_train_runway, y_train_runway)
-print('-----TEST 1 DONE (runway_on_runway_maleandfemale_testsize20prct)------')
+# run_test(filename, X_test_runway, y_test_runway, X_train_runway, y_train_runway)
+# print('-----TEST 1 DONE (runway_on_runway_maleandfemale_testsize20prct)------')
 
-#_______________________TEST 2:________________________________
-#| Chpt3 on Chpt3 Trained Model, male and female, 20 % chpt3 test set. |
-filename = 'Chpt3_F_20%'
-testsizechpt3 = 0.2
-genders = ['male'] #parse empty list if you want both male and female. Include gender to exclude that gender.
+# #_______________________TEST 2:________________________________
+# #| Chpt3 on Chpt3 Trained Model, male and female, 20 % chpt3 test set. |
+# filename = 'Chpt3_F_20%'
+# testsizechpt3 = 0.2
+# genders = ['male'] #parse empty list if you want both male and female. Include gender to exclude that gender.
 
-#______DATA PREP START ________
-#chpt3:
-import src.dataprep_chpt3 as chpt3
-l = chpt3.chpt3vals(genders, testsizechpt3) 
-X_train_chpt3 = l[0]
-X_test_chpt3 = l[1]
-y_train_chpt3 = l[2]
-y_test_chpt3 = l[3]
-#______DATA PREP END ________
+# #______DATA PREP START ________
+# #chpt3:
+# import src.dataprep_chpt3 as chpt3
+# l = chpt3.chpt3vals(genders, testsizechpt3) 
+# X_train_chpt3 = l[0]
+# X_test_chpt3 = l[1]
+# y_train_chpt3 = l[2]
+# y_test_chpt3 = l[3]
+# #______DATA PREP END ________
 
-run_test(filename, X_test_chpt3, y_test_chpt3, X_train_chpt3, y_train_chpt3)
+# run_test(filename, X_test_chpt3, y_test_chpt3, X_train_chpt3, y_train_chpt3)
 
-print('-----TEST 2 DONE (chpt3_on_chpt3_female_testsize20prct)------')
+# print('-----TEST 2 DONE (chpt3_on_chpt3_female_testsize20prct)------')
 
 
-#_______________________TEST 3:________________________________
-#| Chpt3 on Runway Trained Model, both male and female, 100 % |
+# #_______________________TEST 3:________________________________
+# #| Chpt3 on Runway Trained Model, both male and female, 100 % |
 
-filename = 'Chpt3_Runway_M+F_100%'
+# filename = 'Chpt3_Runway_M+F_100%'
 
-testsizerunway = 1
-testsizechpt3 = 1
-genders = [] #parse empty list if you want both male and female. Include gender to exclude that gender.
+# testsizerunway = 1
+# testsizechpt3 = 1
+# genders = [] #parse empty list if you want both male and female. Include gender to exclude that gender.
 
-#______DATA PREP START ________
-#chpt3:
-import src.dataprep_chpt3 as chpt3
-l = chpt3.chpt3vals(genders, testsizechpt3) 
-X_train_chpt3 = l[0]
-X_test_chpt3 = l[1]
-y_train_chpt3 = l[2]
-y_test_chpt3 = l[3]
+# #______DATA PREP START ________
+# #chpt3:
+# import src.dataprep_chpt3 as chpt3
+# l = chpt3.chpt3vals(genders, testsizechpt3) 
+# X_train_chpt3 = l[0]
+# X_test_chpt3 = l[1]
+# y_train_chpt3 = l[2]
+# y_test_chpt3 = l[3]
 
-#runway:
-import src.dataprep_runway as runway
-l = runway.runwayvals(testsizerunway)
-X_train_runway = l[0]
-X_test_runway = l[1]
-y_train_runway = l[2]
-y_test_runway = l[3]
-#______DATA PREP END ________
+# #runway:
+# import src.dataprep_runway as runway
+# l = runway.runwayvals(testsizerunway)
+# X_train_runway = l[0]
+# X_test_runway = l[1]
+# y_train_runway = l[2]
+# y_test_runway = l[3]
+# #______DATA PREP END ________
  
-run_test(filename, X_test_chpt3, y_test_chpt3, X_train_runway, y_train_runway)
-print('-----TEST 3 DONE (chpt3_on_runway_maleandfemale_testsize100prct)------')
+# run_test(filename, X_test_chpt3, y_test_chpt3, X_train_runway, y_train_runway)
+# print('-----TEST 3 DONE (chpt3_on_runway_maleandfemale_testsize100prct)------')
 
-#_______________________TEST 4:________________________________
-#| Chpt3 on Runway Trained Model, only female, 100 % chpt3 test set. |
+# #_______________________TEST 4:________________________________
+# #| Chpt3 on Runway Trained Model, only female, 100 % chpt3 test set. |
 
-filename = 'Chpt3_Runway_F_100%'
+# filename = 'Chpt3_Runway_F_100%'
+# testsizerunway = 1
+# testsizechpt3 = 1
+# genders = ['male'] #parse empty list if you want both male and female. Include gender to exclude that gender.
+
+# #______DATA PREP START ________
+# #chpt3:
+# import src.dataprep_chpt3 as chpt3
+# l = chpt3.chpt3vals(genders, testsizechpt3) 
+# X_train_chpt3 = l[0]
+# X_test_chpt3 = l[1]
+# y_train_chpt3 = l[2]
+# y_test_chpt3 = l[3]
+
+# #runway:
+# import src.dataprep_runway as runway
+# l = runway.runwayvals(testsizerunway)
+# X_train_runway = l[0]
+# X_test_runway = l[1]
+# y_train_runway = l[2]
+# y_test_runway = l[3]
+# #______DATA PREP END ________
+
+# run_test(filename, X_test_chpt3, y_test_chpt3, X_train_runway, y_train_runway)
+# print('-----TEST 4 DONE (chpt3_on_runway_female_testsize100prct)------')
+
+# #_______________________TEST 5:________________________________
+# #| Chpt3 on Chpt3 Trained Model, male and female, 20 % chpt3 test set. |
+# filename = 'Chpt3_M+F_20%'
+# testsizechpt3 = 0.2
+# genders = [] #parse empty list if you want both male and female. Include gender to exclude that gender.
+
+# #______DATA PREP START ________
+# #chpt3:
+# import src.dataprep_chpt3 as chpt3
+# l = chpt3.chpt3vals(genders, testsizechpt3) 
+# X_train_chpt3 = l[0]
+# X_test_chpt3 = l[1]
+# y_train_chpt3 = l[2]
+# y_test_chpt3 = l[3]
+# #______DATA PREP END ________
+
+# run_test(filename, X_test_chpt3, y_test_chpt3, X_train_chpt3, y_train_chpt3)
+
+
+
+# print('-----TEST 5 DONE (chpt3_on_chpt3_maleandfemale_testsize20prct)------')
+
+
+#_______________________TEST 6:________________________________
+#| Single input on Runway Trained Model, 100 % single input test set. |
+filename = 'Single_Runway_M+F_100%'
 testsizerunway = 1
-testsizechpt3 = 1
-genders = ['male'] #parse empty list if you want both male and female. Include gender to exclude that gender.
 
 #______DATA PREP START ________
-#chpt3:
-import src.dataprep_chpt3 as chpt3
-l = chpt3.chpt3vals(genders, testsizechpt3) 
-X_train_chpt3 = l[0]
-X_test_chpt3 = l[1]
-y_train_chpt3 = l[2]
-y_test_chpt3 = l[3]
+#runway:
+import src.dataprep_runway_single as single
+l = single.runwayvals(testsizerunway)
+X_train_single = l[0]
+X_test_single = l[1]
+y_train_single = l[2]
+y_test_single = l[3]
 
 #runway:
 import src.dataprep_runway as runway
@@ -300,29 +349,9 @@ y_train_runway = l[2]
 y_test_runway = l[3]
 #______DATA PREP END ________
 
-run_test(filename, X_test_chpt3, y_test_chpt3, X_train_runway, y_train_runway)
-print('-----TEST 4 DONE (chpt3_on_runway_female_testsize100prct)------')
+run_test(filename, X_test_single, y_test_single, X_train_runway, y_train_runway)
 
-#_______________________TEST 5:________________________________
-#| Chpt3 on Chpt3 Trained Model, male and female, 20 % chpt3 test set. |
-filename = 'Chpt3_M+F_20%'
-testsizechpt3 = 0.2
-genders = [] #parse empty list if you want both male and female. Include gender to exclude that gender.
-
-#______DATA PREP START ________
-#chpt3:
-import src.dataprep_chpt3 as chpt3
-l = chpt3.chpt3vals(genders, testsizechpt3) 
-X_train_chpt3 = l[0]
-X_test_chpt3 = l[1]
-y_train_chpt3 = l[2]
-y_test_chpt3 = l[3]
-#______DATA PREP END ________
-
-run_test(filename, X_test_chpt3, y_test_chpt3, X_train_chpt3, y_train_chpt3)
-
-print('-----TEST 5 DONE (chpt3_on_chpt3_maleandfemale_testsize20prct)------')
-
+print('-----TEST 6 DONE (single on runway)------')
 
 
 

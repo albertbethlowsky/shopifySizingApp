@@ -27,16 +27,24 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import cross_val_score
 
 def getresults(maxdepth, X_test, y_test, X_train, y_train):
+
+    dtree_model = DecisionTreeClassifier(max_depth = maxdepth)
+    scores = cross_val_score(dtree_model, X_train, y_train, cv=5)
+
     #insert runway's var:
     start = time()
-    dtree_model = DecisionTreeClassifier(max_depth = maxdepth).fit(X_train, y_train)
+    dtree_model.fit(X_train, y_train)
     time_dtc = time()-start #seconds
 
     #insert chpt3's var:
     y_pred = dtree_model.predict(X_test)
+    # print("this is X_test:")
+    # print(X_test)
+    # print("this is DTC y_pred:")
+    # print(y_pred)
 
     #print(cm)
-    scores = cross_val_score(dtree_model, X_test, y_test, cv=5)
+    scores = cross_val_score(dtree_model, X_test, y_test, cv=10)
     accuracy = accuracy_score(y_test, y_pred)
     rmse = mean_squared_error(y_test,y_pred)
     mae = mean_absolute_error(y_test,y_pred)
